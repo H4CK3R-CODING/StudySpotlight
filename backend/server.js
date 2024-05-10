@@ -7,6 +7,7 @@ import mainRouter from './routers/index.router.js';
 
 const app = express()
 dotenv.config();
+app.use(express.json());
 
 const PORT = process.env.PORT;
 
@@ -18,6 +19,6 @@ app.use("/",()=>{
 
 
 app.listen(PORT,async ()=>{
-    await connectToDB();
+    // await connectToDB();
     console.log(`The Server is running on port ${PORT}`);
 })
