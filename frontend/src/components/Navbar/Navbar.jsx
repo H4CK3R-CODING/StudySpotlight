@@ -1,17 +1,35 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+
+import NavBtn from './NavBtn'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
+  const data = [
+    {
+      label: "Home",
+      to: "/"
+    },
+    {
+      label: "About",
+      to: "/about"
+    },
+    
+  ]
   return (
-    <div className='bg-gray-500 ram h-16 flex justify-between items-center'>
+    <div className='static h-16 '>
+      <div className='fixed w-full h-16 flex justify-between items-center bg-gradient-to-r from-[#50FFB1] to-[#4FB286]'>
       {/* <img className='w-40 h-16' src="./logowbc.png" alt="logowbc" /> */}
-      <h1>StudySpotlight</h1>
+      <Link to={"/"} className='text-white font-semibold italic p-2 m-2 text-3xl'>StudySpotlight</Link>
       <div>
         <ul className='flex justify-center items-center'>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/">About</Link></li>
+          {
+            data.map((ele,idx)=>{
+              return <NavBtn list={ele} key={idx}/>
+            })
+          }
         </ul>
       </div>
+    </div>
     </div>
   )
 }
