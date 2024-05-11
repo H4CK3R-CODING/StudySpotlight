@@ -4,11 +4,16 @@ import InputContainer from '../../components/InputContainer/InputContainer'
 import data from '../../../utils/optionData'
 import Option from '../Semester/Option'
 import Btn from '../Home/Btn'
+import axios from 'axios'
+import { useRecoilValue } from 'recoil'
+import Atom from '../../Recoil/Atom'
 
 const Register = () => {
     const [name, setName] = useState("");
     const [gmail, setGmail] = useState("")
     const [password, setPassword] = useState("")
+    const semester = useRecoilValue(Atom.semAtom)
+    const branch = useRecoilValue(Atom.branchAtom)
 
 
     const noInput = [
@@ -43,13 +48,27 @@ const Register = () => {
 
     const btninfo = {
         label: "Register",
-        onclick: (event)=>{
+        onclick: async (event)=>{
             event.preventDefault();
-            
+            const config = {
+                headers: {
+                  'Content-Type': 'application/json'
+                }
+            }
+            const {data} = await axios.post("/api/v1/user/register",{
+                name,
+                semester,
+                branch,
+                gmail,
+                password,
+            },config);
+            console.log(data)
           console.log("get notes");
           console.log(name);
           console.log(gmail);
           console.log(password);
+          console.log(semester);
+          console.log(branch);
         }
       };
     
