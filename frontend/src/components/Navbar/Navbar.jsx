@@ -7,11 +7,15 @@ const Navbar = () => {
   const data = [
     {
       label: "Home",
-      to: "/"
+      to: "/",
     },
     {
       label: "About",
-      to: "/about"
+      to: "/about",
+    },
+    {
+      label: "Register",
+      to: "/register",
     },
     
   ]

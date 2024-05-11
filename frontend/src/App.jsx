@@ -8,6 +8,7 @@ import Home from "./pages/Home/Home"
 import About from "./pages/About/About"
 import Semester from './pages/Semester/Semester'
 import Note from './pages/Notes/Note';
+import Register from './pages/Register/Register';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/about' element={<About/>} ></Route>
           <Route path='/sem' element={<Semester/>} ></Route>
           <Route path='/notes' element={<Note/>} ></Route>
+          <Route path='/register' element={<Register/>} ></Route>
         </Routes>
       </RecoilRoot>
     </>
