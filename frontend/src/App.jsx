@@ -12,6 +12,7 @@ import Register from './pages/Register/Register';
 import { Toaster } from 'react-hot-toast';
 import Instruction from './pages/Instuction/Instruction';
 import SignIn from './pages/SignIn/SignIn';
+import JoinUs from './pages/JoinUs';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path='/about' element={<About/>} ></Route>
           <Route path='/sem' element={<Semester/>} ></Route>
           <Route path='/notes' element={<Note/>} ></Route>
+          <Route path='/join' element={<JoinUs/>} ></Route>
           <Route path='/register' element={<Register/>} ></Route>
           <Route path='/instuction' element={<Instruction/>} ></Route>
         </Routes>

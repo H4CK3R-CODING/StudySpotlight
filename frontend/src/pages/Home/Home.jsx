@@ -15,6 +15,7 @@ const Home = () => {
     {
       label: "Join Community",
       onclick: ()=>{
+        navigate("/join")
         console.log("join community");
       }
     },
