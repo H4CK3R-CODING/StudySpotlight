@@ -33,11 +33,7 @@ const userContrller = async (req,res) => {
         })
 
         res.status(200).json({
-            name,
-            semester,
-            branch,
-            gmail,
-            password
+            msg: "Submited Succefully"
         })
         
     } catch (error) {

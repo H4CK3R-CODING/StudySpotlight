@@ -8,6 +8,8 @@ import axios from 'axios'
 import { useRecoilValue } from 'recoil'
 import Atom from '../../Recoil/Atom'
 
+import toast from "react-hot-toast"
+
 const Register = () => {
     const [name, setName] = useState("");
     const [gmail, setGmail] = useState("")
@@ -49,26 +51,36 @@ const Register = () => {
     const btninfo = {
         label: "Register",
         onclick: async (event)=>{
-            event.preventDefault();
-            const config = {
-                headers: {
-                  'Content-Type': 'application/json'
+            try {
+                event.preventDefault();
+                const config = {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
                 }
+                const {data} = await axios.post("/api/v1/user/register",{
+                    name,
+                    semester,
+                    branch,
+                    gmail,
+                    password,
+                },config);
+
+                if(data.msg == "Submited Succefully"){
+                    toast.success("Submited Successfully")
+                }
+                else if(data.msg == "User already exist!"){
+                    toast.error("User already exist!")
+                }
+                else if(data.msg == "Some mistake in your Inputs"){
+                    toast.error("Some mistake in your Inputs")
+                }
+                else{
+                    toast.error("Fill Again")
+                }
+            } catch (error) {
+                toast.error("Fill up all the detail");
             }
-            const {data} = await axios.post("/api/v1/user/register",{
-                name,
-                semester,
-                branch,
-                gmail,
-                password,
-            },config);
-            console.log(data)
-          console.log("get notes");
-          console.log(name);
-          console.log(gmail);
-          console.log(password);
-          console.log(semester);
-          console.log(branch);
         }
       };
     
