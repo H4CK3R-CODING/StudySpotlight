@@ -13,6 +13,7 @@ import { Toaster } from 'react-hot-toast';
 import Instruction from './pages/Instuction/Instruction';
 import SignIn from './pages/SignIn/SignIn';
 import JoinUs from './pages/JoinUs';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path='/register' element={<Register/>} ></Route>
           <Route path='/instuction' element={<Instruction/>} ></Route>
         </Routes>
+        <Footer/>
       </RecoilRoot>
     </>
   )
