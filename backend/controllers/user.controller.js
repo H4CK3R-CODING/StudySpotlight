@@ -2,11 +2,12 @@ import userAuth from "../zod/userAuth.js";
 import User from "../models/user/user.model.js"
 import validUserAuth from "../zod/validUserAuth.js";
 import validUser from "../models/user/validUser.model.js";
+import bcrypt from 'bcrypt'
 
 const userContrller = async (req,res) => {
     try {
 
-        const {name, semester, branch, gmail} = req.body;
+        const {name, semester, branch, gmail, password} = req.body;
         const {success} = userAuth.safeParse(req.body);
 
         if(!success){
@@ -16,15 +17,26 @@ const userContrller = async (req,res) => {
             });
         }
 
+        const isExist = await User.findOne({
+            gmail
+        })
+
+        if(isExist){
+            return res.status(201).json({
+                msg: "User already exist!"
+            })
+        }
+
         await User.create({
-            name, semester, branch, gmail
+            name, semester, branch, gmail, password
         })
 
         res.status(200).json({
             name,
             semester,
             branch,
-            gmail
+            gmail,
+            password
         })
         
     } catch (error) {
@@ -47,24 +59,29 @@ const signin = async (req,res)=>{
         }
 
         const isUser = await validUser.findOne({
-            username,
-            password
+            username
         })
 
+        
         if(isUser !== null){
-            res.status(200).json({
-                username,
-                password
-            })
-
+            const checkPassword = await bcrypt.compare(password, isUser.password);
+            if(checkPassword){
+                res.status(200).json({
+                    username,
+                    password
+                })
+            }
+            else{
+                res.status(401).json({
+                    msg: "Password is wrong!"
+                })
+            }
         }
         else{
             res.status(401).json({
                 msg: "User can not access!"
             })
         }
-
-    
 
     } catch (error) {
         console.log("Error occure in the user.controller.js ===> " + error.message)

@@ -4,6 +4,7 @@ const validUserSchema = new mongoose.Schema({
     username:{
         type: String,
         required: true,
+        unique: true
         // validate: [
         //     validators.notEmpty,
         //     "username is empty"

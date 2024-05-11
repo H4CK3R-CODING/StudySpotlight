@@ -18,7 +18,12 @@ const registerSchema = new mongoose.Schema({
   gmail: {
     type: String,
     required: true,
+    unique: true,
   },
+  password: {
+    type: String,
+    required: true
+  }
 });
 
 const User = new mongoose.model("User", registerSchema);

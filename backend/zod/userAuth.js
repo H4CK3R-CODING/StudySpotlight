@@ -5,6 +5,7 @@ const userAuth = zod.object({
     semester: zod.number(),
     branch: zod.string(),
     gmail: zod.string().email(),
+    password: zod.string()
 }).required()
 
 export default userAuth;
