@@ -1,10 +1,10 @@
 import React from "react";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import Atom from "../../Recoil/Atom";
 
 const Option = ({ opt }) => {
-  const setSem = useSetRecoilState(Atom.semAtom);
-  const setBranch = useSetRecoilState(Atom.branchAtom);
+  const [sem, setSem] = useRecoilState(Atom.semAtom);
+  const [branch, setBranch] = useRecoilState(Atom.branchAtom);
 
   return (
     <div className="flex flex-col my-2">
@@ -21,7 +21,7 @@ const Option = ({ opt }) => {
       >
         {opt.opt.map((ele, idx) => {
           return (
-            <option className="" key={idx} value={`${ele.val}`}>
+            <option key={idx} value={`${ele.val}`}>
               {ele.name}
             </option>
           );

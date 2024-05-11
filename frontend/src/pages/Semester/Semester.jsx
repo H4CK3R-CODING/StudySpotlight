@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {useNavigate} from "react-router-dom"
 import Option from "./Option";
 import Btn from "../Home/Btn";
@@ -7,16 +7,22 @@ import Atom from "../../Recoil/Atom";
 import axios from "axios";
 
 import data from "../../../utils/optionData";
+import toast from "react-hot-toast";
 
 const Semester = () => {
     const navigate = useNavigate();
     const [sem, setSem] = useRecoilState(Atom.semAtom);
     const [branch, setBranch] = useRecoilState(Atom.branchAtom);
 
+    useEffect(()=>{
+      setSem(1);
+      setBranch("cse");
+    },[])
+
   return (
-    <div>
-      <div>
-        <h1>Fill Your Details</h1>
+    <div className='flex flex-col justify-center items-center mt-10'>
+      <div className='w-1/2'>
+        <h1 className='text-4xl font-semibold text-center font-[Poppins] my-4' >Study Materials</h1>
         <form>
           {data.map((ele, idx) => {
             return <Option key={idx} opt={ele} />;
@@ -32,12 +38,17 @@ const Semester = () => {
                         'Content-Type': 'application/json'
                       }
                     }
-                    const data = await axios.post("/api/v1/notes/getSub", {
+                    const {data} = await axios.post("/api/v1/notes/getSub", {
                       sem: sem,
                       branch: branch,
                     },config);
-                    console.log(data.data)
-                    navigate("/notes",{state: {data: data.data}});
+                    console.log(data)
+                    if(data.msg == "Unauthorized - No Token Provided" || data.msg == "You Can't Access that file!"){
+                      toast.error("You Can't Access that file!")
+                      navigate("/instuction");
+                      return;
+                    }
+                    // navigate("/notes",{state: {data: data}});
                     // navigate(`sem-${sem}/branch-${branch}`)
                   
                 } catch (error) {
@@ -48,8 +59,6 @@ const Semester = () => {
               label: "Next -->",
             }}
           />
-          <p>sem:{sem}</p>
-          <p>branch:{branch}</p>
         </form>
       </div>
     </div>

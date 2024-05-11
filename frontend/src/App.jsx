@@ -10,6 +10,7 @@ import Semester from './pages/Semester/Semester'
 import Note from './pages/Notes/Note';
 import Register from './pages/Register/Register';
 import { Toaster } from 'react-hot-toast';
+import Instruction from './pages/Instuction/Instruction';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path='/sem' element={<Semester/>} ></Route>
           <Route path='/notes' element={<Note/>} ></Route>
           <Route path='/register' element={<Register/>} ></Route>
+          <Route path='/instuction' element={<Instruction/>} ></Route>
         </Routes>
       </RecoilRoot>
     </>

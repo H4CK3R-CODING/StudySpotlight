@@ -8,14 +8,14 @@ const protectRoutes = async (req,res,next) => {
         const token = req.cookies.jwt;
 
         if(!token){
-            return res.status(401).json({
+            return res.status(201).json({
                 msg: "Unauthorized - No Token Provided"
             })
         }
         
         const {userId} = jwt.verify(token,process.env.JWT_TOKEN);
         if(!userId){
-            return res.status(401).json({
+            return res.status(201).json({
                 msg: "Unauthorized - No Token Provided"
             })
         }
@@ -25,7 +25,7 @@ const protectRoutes = async (req,res,next) => {
         })
         
         if(!user){
-            return res.status(401).json({
+            return res.status(201).json({
                 msg: "You Can't Access that file!"
             })
         }

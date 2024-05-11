@@ -7,7 +7,6 @@ import Btn from '../Home/Btn'
 import axios from 'axios'
 import { useRecoilValue } from 'recoil'
 import Atom from '../../Recoil/Atom'
-
 import toast from "react-hot-toast"
 
 const Register = () => {
@@ -85,8 +84,8 @@ const Register = () => {
       };
     
   return (
-    <div className='flex justify-center items-center'>
-        <form>
+    <div className='flex justify-center items-center mt-10'>
+        <form className='w-1/2'>
             {
                 noInput.map((ele,idx)=>{
                     return <InputContainer key={idx} detail={ele}/>
