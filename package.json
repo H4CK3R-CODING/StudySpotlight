@@ -15,6 +15,7 @@
   "dependencies": {
     "dotenv": "^14.0.0",
     "express": "^4.19.2",
-    "mongoose": "^8.3.4"
+    "mongoose": "^8.3.4",
+    "zod": "^3.23.8"
   }
 }

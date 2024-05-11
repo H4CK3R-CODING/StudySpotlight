@@ -6,7 +6,6 @@ const getSub = (req,res) => {
 
 
     const d = data[branch][sem];
-    console.dir(d);
     
     // data.map((ele)=>{
     //     const keys = Object.keys(ele);
@@ -20,10 +19,7 @@ const getSub = (req,res) => {
     // })
 
 
-    res.status(200).json({
-        sem,
-        branch
-    })
+    res.status(200).json(d)
   } catch (error) {
     console.log("Error occur in the getSub.controller.js ====>  " + error);
   }

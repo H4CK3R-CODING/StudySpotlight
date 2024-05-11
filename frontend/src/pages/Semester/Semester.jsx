@@ -4,6 +4,7 @@ import Option from "./Option";
 import Btn from "../Home/Btn";
 import { useRecoilState } from "recoil";
 import Atom from "../../Recoil/Atom";
+import axios from "axios";
 
 const Semester = () => {
     const navigate = useNavigate();
@@ -82,10 +83,21 @@ const Semester = () => {
           })}
           <Btn
             btninfo={{
-              onclick: (event) => {
+              onclick: async (event) => {
                 event.preventDefault();
                 console.log("Next -->");
-                navigate(`sem-${sem}/branch-${branch}`)
+                const config = {
+                  headers: {
+                    'Content-Type': 'application/json'
+                  }
+                }
+                const data = await axios.post("/api/v1/notes/getSub", {
+                  sem: sem,
+                  branch: branch,
+                },config);
+                console.log(data.data)
+                navigate("/notes",{state: {data: data.data}});
+                // navigate(`sem-${sem}/branch-${branch}`)
               },
               label: "Next -->",
             }}

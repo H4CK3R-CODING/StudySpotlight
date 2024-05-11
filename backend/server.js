@@ -19,6 +19,6 @@ app.use("/",()=>{
 
 
 app.listen(PORT,async ()=>{
-    // await connectToDB();
+    await connectToDB();
     console.log(`The Server is running on port ${PORT}`);
 })
