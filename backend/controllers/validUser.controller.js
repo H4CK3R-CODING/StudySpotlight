@@ -3,7 +3,6 @@ import validUserModel from "../models/user/validUser.model.js"
 import User from "../models/user/user.model.js";
 import bcrypt from 'bcrypt'
 
-
 const validUser = async (req,res)=>{
     try {
 

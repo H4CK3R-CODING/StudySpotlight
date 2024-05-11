@@ -3,6 +3,7 @@ import User from "../models/user/user.model.js"
 import validUserAuth from "../zod/validUserAuth.js";
 import validUser from "../models/user/validUser.model.js";
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 
 const userContrller = async (req,res) => {
     try {
@@ -61,27 +62,36 @@ const signin = async (req,res)=>{
         const isUser = await validUser.findOne({
             username
         })
-
         
         if(isUser !== null){
             const checkPassword = await bcrypt.compare(password, isUser.password);
             if(checkPassword){
-                res.status(200).json({
+
+                const userId = isUser._id.toString();
+                const token = jwt.sign({userId},process.env.JWT_TOKEN,{
+                    expiresIn: "15d"
+                })
+
+                res.cookie("jwt",token,{
+                    maxAge: 15*24*60*60*1000,
+                    httpOnly: true,
+                    sameSite: 'strict',
+                    secure: process.env.NODE_ENV !== "development",
+                })
+
+
+                return res.status(200).json({
                     username,
                     password
                 })
             }
-            else{
-                res.status(401).json({
-                    msg: "Password is wrong!"
-                })
-            }
-        }
-        else{
-            res.status(401).json({
-                msg: "User can not access!"
+            return res.status(401).json({
+                msg: "Password is wrong!"
             })
         }
+        res.status(401).json({
+            msg: "User can not access!"
+        })
 
     } catch (error) {
         console.log("Error occure in the user.controller.js ===> " + error.message)
