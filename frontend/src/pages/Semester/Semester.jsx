@@ -48,8 +48,7 @@ const Semester = () => {
                       navigate("/instuction");
                       return;
                     }
-                    // navigate("/notes",{state: {data: data}});
-                    // navigate(`sem-${sem}/branch-${branch}`)
+                    navigate("/notes",{state: {data: data}});
                   
                 } catch (error) {
                   console.log("ksdjf ==>" + error.message)
