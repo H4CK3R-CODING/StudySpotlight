@@ -11,6 +11,7 @@ import Note from './pages/Notes/Note';
 import Register from './pages/Register/Register';
 import { Toaster } from 'react-hot-toast';
 import Instruction from './pages/Instuction/Instruction';
+import SignIn from './pages/SignIn/SignIn';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         />
         <Routes>
           <Route path='/' element={<Home/>} ></Route>
+          <Route path='/signin' element={<SignIn/>} ></Route>
           <Route path='/about' element={<About/>} ></Route>
           <Route path='/sem' element={<Semester/>} ></Route>
           <Route path='/notes' element={<Note/>} ></Route>

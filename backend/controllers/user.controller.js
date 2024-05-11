@@ -50,7 +50,7 @@ const signin = async (req,res)=>{
         const {success} = validUserAuth.safeParse(req.body)
 
         if(!success){
-            res.status(401).json({
+            res.status(201).json({
                 msg: "Input are not correct"
             })
         }
@@ -77,16 +77,15 @@ const signin = async (req,res)=>{
 
 
                 return res.status(200).json({
-                    username,
-                    password
+                    msg: "Successfully SignIn"
                 })
             }
-            return res.status(401).json({
+            return res.status(201).json({
                 msg: "Password is wrong!"
             })
         }
-        res.status(401).json({
-            msg: "User can not access!"
+        res.status(201).json({
+            msg: "You have not access!"
         })
 
     } catch (error) {

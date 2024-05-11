@@ -14,6 +14,10 @@ const Navbar = () => {
       to: "/about",
     },
     {
+      label: "Sign In",
+      to: "/signin",
+    },
+    {
       label: "Register",
       to: "/register",
     },
