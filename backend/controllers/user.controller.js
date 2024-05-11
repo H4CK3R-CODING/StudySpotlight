@@ -1,5 +1,7 @@
 import userAuth from "../zod/userAuth.js";
 import User from "../models/user/user.model.js"
+import validUserAuth from "../zod/validUserAuth.js";
+import validUser from "../models/user/validUser.model.js";
 
 const userContrller = async (req,res) => {
     try {
@@ -32,4 +34,42 @@ const userContrller = async (req,res) => {
     
 }
 
-export default userContrller
+const signin = async (req,res)=>{
+
+    try {
+        const {username, password} = req.body;
+        const {success} = validUserAuth.safeParse(req.body)
+
+        if(!success){
+            res.status(401).json({
+                msg: "Input are not correct"
+            })
+        }
+
+        const isUser = await validUser.findOne({
+            username,
+            password
+        })
+
+        if(isUser !== null){
+            res.status(200).json({
+                username,
+                password
+            })
+
+        }
+        else{
+            res.status(401).json({
+                msg: "User can not access!"
+            })
+        }
+
+    
+
+    } catch (error) {
+        console.log("Error occure in the user.controller.js ===> " + error.message)
+    }
+    
+}
+
+export {userContrller, signin};

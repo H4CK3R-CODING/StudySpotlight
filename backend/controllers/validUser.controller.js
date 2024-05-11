@@ -1,6 +1,7 @@
 import validUserAuth from "../zod/validUserAuth.js";
 import validUserModel from "../models/user/validUser.model.js"
 import User from "../models/user/user.model.js";
+// import bcrypt from 'bcrypt'
 
 
 const validUser = async (req,res)=>{
@@ -18,6 +19,10 @@ const validUser = async (req,res)=>{
         const check = await User.findOne({
             gmail: username
         })
+
+        // const salt = bcrypt.genSalt(10);
+        // const hashPassword = bcrypt.hash(password, salt)
+        // console.log(hashPassword);
 
         if(check !== null){
             await validUserModel.create({
