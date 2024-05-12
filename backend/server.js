@@ -3,8 +3,13 @@ import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser';
 import connectToDB from './db/connectToDB.js';
 
-
 import mainRouter from './routers/index.router.js';
+
+
+import path from 'path'
+
+const __dirname = path.resolve();
+
 
 const app = express()
 dotenv.config();
@@ -15,8 +20,10 @@ const PORT = process.env.PORT;
 
 app.use("/api/v1/",mainRouter);
 
-app.use("/",()=>{
-    console.log("hello");
+app.use(express.static(path.join(__dirname, "/frontend/dist")));
+
+app.get("*", (req,res)=>{
+    res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
 })
 
 
