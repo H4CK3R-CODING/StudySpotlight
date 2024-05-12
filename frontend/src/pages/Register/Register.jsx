@@ -85,7 +85,7 @@ const Register = () => {
     
   return (
     <div className=' flex justify-center items-center my-20'>
-        <form className='w-1/2'>
+        <form className='w-full px-9 md:w-[75vw]'>
             {
                 noInput.map((ele,idx)=>{
                     return <InputContainer key={idx} detail={ele}/>
