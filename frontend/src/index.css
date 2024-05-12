@@ -27,7 +27,7 @@
 } */
 
 .home{
-    background: url("./HomePage.jpg");
+    background: url("./assets/HomePage.jpg");
     width: 100vw;
     height: 100vh;
     background-size: cover;

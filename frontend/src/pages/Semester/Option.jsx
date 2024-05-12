@@ -15,7 +15,7 @@ const Option = ({ opt }) => {
         className='font-[Poppins] font-[400] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg p-2 m-1 focus:ring-blue-500 focus:border-blue-500 block'
         required
         onChange={(event) => {
-          console.log(event.target.value);
+          // console.log(event.target.value);
           {opt.sele == "sem" ? setSem(event.target.value) : setBranch(event.target.value)};
         }}
       >

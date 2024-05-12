@@ -31,7 +31,7 @@ const Semester = () => {
             btninfo={{
               onclick: async (event) => {
                 event.preventDefault();
-                console.log("Next -->");
+                // console.log("Next -->");
                 try {
                     const config = {
                       headers: {
@@ -42,7 +42,7 @@ const Semester = () => {
                       sem: sem,
                       branch: branch,
                     },config);
-                    console.log(data)
+                    // console.log(data)
                     if(data.msg == "Unauthorized - No Token Provided" || data.msg == "You Can't Access that file!"){
                       toast.error("You Can't Access that file!")
                       navigate("/instuction");
@@ -57,7 +57,7 @@ const Semester = () => {
                     
                   } catch (error) {
                     if(error.message == "invalid signature" || error.message == "invalid token"){
-                      console.log("error")
+                      // console.log("error")
                       toast.error("Your attempt to access it is incorrect.")
                       return;
                     }

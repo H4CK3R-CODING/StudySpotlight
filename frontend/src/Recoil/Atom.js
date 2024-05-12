@@ -13,7 +13,7 @@ const branchAtom = atom({
 
 const totalMaterial = atom({
     key: "totalMaterial",
-    default: 3.0
+    default: 10.0
 })
 
 

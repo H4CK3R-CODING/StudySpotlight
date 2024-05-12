@@ -1,6 +1,5 @@
 import data from "../utils/data.js";
 
-
 const getSub = (req,res) => {
   try {
     const {sem, branch} = req.body;
@@ -13,7 +12,7 @@ const getSub = (req,res) => {
       })
       return;
     }
-    console.log(isBranch)
+    // console.log(isBranch)
     
     const isSem = data[branch][sem];
     if(!isSem){
@@ -22,7 +21,7 @@ const getSub = (req,res) => {
       })
       return;
     }
-    console.log(isSem)
+    // console.log(isSem)
 
     res.status(200).send(isSem);
     

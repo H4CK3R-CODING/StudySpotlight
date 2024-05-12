@@ -7,11 +7,15 @@
 const contentProvider = [
   {
     name: "Gaurav",
-    quantity: 2.0,
+    quantity: 5.0,
   },
   {
     name: "Gulshan",
-    quantity: 1.0,
+    quantity: 2.5,
+  },
+  {
+    name: "Vansh",
+    quantity: 2.5,
   },
 ];
 

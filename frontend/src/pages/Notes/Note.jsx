@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 const Note = () => {
   const location = useLocation();
   const info = location.state.data;
-  console.log(info);
+  // console.log(info);
 
   return (
     <div className="min-h-[70vh]">
@@ -14,7 +14,7 @@ const Note = () => {
           return (
             <div
               key={idx}
-              className="flex justify-center items-center bg-gradient-to-br from-[#281ac3] to-[#4156f5] shadow-lg shadow-[#5e50b1] rounded-xl h-40 m-4 cursor-pointer text-white font-semibold text-xl w-72 h-55  sm:w-60 h-40"
+              className="flex justify-center items-center bg-gradient-to-br from-[#281ac3] to-[#4156f5] shadow-lg shadow-[#5e50b1] rounded-xl h-40 m-4 cursor-pointer text-white font-semibold text-xl w-72 h-55 p-4 text-center sm:w-60"
               onClick={() => {
                 window.open(ele.link);
               }}
