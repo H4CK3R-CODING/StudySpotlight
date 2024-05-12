@@ -48,6 +48,11 @@ const Semester = () => {
                       navigate("/instuction");
                       return;
                     }
+                    if(data.msg == "data not found"){
+                      toast.error("Data updated very soon!")
+                      toast.error("Data not found for that")
+                      return;
+                    }
                     navigate("/notes",{state: {data: data}});
                     
                   } catch (error) {
