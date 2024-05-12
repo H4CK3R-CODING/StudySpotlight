@@ -52,6 +52,11 @@ const Register = () => {
         onclick: async (event)=>{
             try {
                 event.preventDefault();
+                if(name == "" || semester == "" || branch == "" || gmail == "" || password == "" ){
+                    toast.error("Please Fill Up Username and Password")
+                    return;
+                }
+                console.log("ne")
                 const config = {
                     headers: {
                         'Content-Type': 'application/json'
