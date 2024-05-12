@@ -15,7 +15,7 @@
 } */
 
 
-.home::before{
+/* .home::before{
     content: "";
     width: 100vw;
     height: 100vh;
@@ -24,4 +24,14 @@
     left: 0;
     background: url("./Home/2.jpg");
     z-index: -100;
+} */
+
+.home{
+    background: url("./Home/2.jpg");
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: 69%;
+    background-repeat: no-repeat;
+    z-index: -1;
 }

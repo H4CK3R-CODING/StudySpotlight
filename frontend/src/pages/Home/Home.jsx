@@ -22,8 +22,8 @@ const Home = () => {
   ]
   return (
     <>
-      <div className='home h-full'>
-        <div className='w-[500px] h-[500px] absolute left-28 top-1/4 rounded-xl flex flex-col justify-center items-center'>
+      <div className='home '>
+        <div className='z-10 absolute left-28 top-1/2 rounded-xl flex flex-col justify-center items-center sm:left-64'>
           {
             btninfo.map((ele,idx)=>{
               return <Btn btninfo={ele} key={idx}/>
