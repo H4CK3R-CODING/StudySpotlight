@@ -27,7 +27,8 @@
         height: 100vh;
         display: block;
         opacity: 1;
-        background-color: blue;
+        /* background-color: black; */
+        background: linear-gradient(to right, #50FFB1, #4FB286);
         z-index: 1;
         transition: 700ms;
         display: flex;

@@ -73,8 +73,8 @@ const SignIn = () => {
 
 
   return (
-    <div className='flex justify-center items-center mt-10'>
-        <form className='w-1/2'>
+    <div className='flex justify-center items-center my-20'>
+        <form className='w-full px-9 md:w-1/2'>
             {
                 noInput.map((ele,idx)=>{
                     return <InputContainer key={idx} detail={ele}/>

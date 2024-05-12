@@ -22,7 +22,7 @@ const Home = () => {
   ]
   return (
     <>
-      <div className='home '>
+      <div className='home h-full'>
         <div className='w-[500px] h-[500px] absolute left-28 top-1/4 rounded-xl flex flex-col justify-center items-center'>
           {
             btninfo.map((ele,idx)=>{
