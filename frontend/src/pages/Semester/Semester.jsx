@@ -49,10 +49,14 @@ const Semester = () => {
                       return;
                     }
                     navigate("/notes",{state: {data: data}});
-                  
-                } catch (error) {
-                  console.log("ksdjf ==>" + error.message)
-                  alert("Sign in first")
+                    
+                  } catch (error) {
+                    if(error.message == "invalid signature"){
+                      console.log("error")
+                      toast.error("Your attempt to access it is incorrect.")
+                      return;
+                    }
+                    toast.error("Some Error Occure--Try Again Later")
                 }
               },
               label: "Next -->",

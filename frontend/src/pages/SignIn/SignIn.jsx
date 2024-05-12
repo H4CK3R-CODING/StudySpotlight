@@ -3,8 +3,10 @@ import InputContainer from '../../components/InputContainer/InputContainer'
 import Btn from '../Home/Btn'
 import axios from 'axios'
 import toast from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
 
 const SignIn = () => {
+    const navigate = useNavigate();
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
@@ -52,6 +54,7 @@ const SignIn = () => {
 
                 if(data.msg == "Successfully SignIn"){
                     toast.success("Successfully SignIn")
+                    navigate('/sem');
                 }
                 else if(data.msg == "Input are not correct"){
                     toast.error("Input are not correct")

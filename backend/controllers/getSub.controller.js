@@ -21,7 +21,7 @@ const getSub = (req,res) => {
 
     res.status(200).json(d)
   } catch (error) {
-    console.log("Error occur in the getSub.controller.js ====>  " + error);
+    console.log("Error occur in the getSub.controller.js ====>  " + error.message);
   }
 }
 

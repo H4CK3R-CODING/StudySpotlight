@@ -33,6 +33,9 @@ const protectRoutes = async (req,res,next) => {
         next();
 
     } catch (error) {
+        res.status(401).json({
+            msg: "invalid signature"
+        })
         console.log("Error occure in the protectRoutes.js ====> " + error.message)
     }
 }
