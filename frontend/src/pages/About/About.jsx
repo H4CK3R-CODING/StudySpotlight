@@ -12,7 +12,9 @@ const About = () => {
       <div className='my-6 flex flex-col justify-center items-center'>
         <h1 className='text-3xl my-4 font-semibold p-2 text-center'>Creator of The Website</h1>
         <img className=' my-4 border-2 border-black rounded-2xl w-[290px] sm:w-[300px]' src="./profile.png" alt="profileImg" />
+        <h1 className='text-3xl font-semibold text-center'>Gaurav</h1>
       </div>
+      {/* <hr className='border-gray-400 w-[90vw] rounded-xl'/> */}
       <div className='my-6 p-2'>
         <h1 className='text-3xl text-center my-2 font-semibold'>Study Material Provider</h1>
         {

@@ -7,12 +7,14 @@ const ProgressorBar = ({info}) => {
     const processRef = useRef();
 
     useEffect(()=>{
-        Array.from(processRef.current.children).map((ele,idx)=>{
-            ele.style.width = `${((info.quantity*100)/totalMaterial)}%`
-        })
+        setTimeout(()=>{
+            Array.from(processRef.current.children).map((ele,idx)=>{
+                ele.style.width = `${((info.quantity*100)/totalMaterial)}%`
+            })
+        }, 1000)
         // processRef.current.style.width = [`${((info.quantity*100)/totalMaterial)}%`]
-        console.log(processRef.current.children[0].style.width)
-        console.log(totalMaterial)
+        // console.log(processRef.current.children[0].style.width)
+        // console.log(totalMaterial)
     },[])
 
   return (
