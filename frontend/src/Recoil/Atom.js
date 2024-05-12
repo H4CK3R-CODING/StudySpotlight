@@ -11,10 +11,16 @@ const branchAtom = atom({
     default: "cse"
 })
 
+const totalMaterial = atom({
+    key: "totalMaterial",
+    default: 3.0
+})
+
 
 const Atom = {
     semAtom,
     branchAtom,
+    totalMaterial
 }
 
 export default Atom;

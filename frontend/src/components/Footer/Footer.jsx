@@ -9,7 +9,7 @@ const Footer = () => {
     <div className='bg-[#181b1b] flex justify-evenly flex-col items-center md:flex-row items-'>
       <div className='m-2 p-2 flex flex-col items-center'>
         <h1 className='text-white p-2 font-semibold text-4xl italic my-2'>Creator</h1>
-        <img className='w-[200px] p-2 rounded-3xl' src="./logo.png" alt="creator_img" />
+        <img className='w-[200px] p-2 rounded-3xl' src="./profile.png" alt="creator_img" />
         <h1 className='text-white p-2 font-[Poppins] font-[400] text-2xl'>Gaurav</h1>
       </div>
       <div className='m-2 p-2 flex flex-col'>
