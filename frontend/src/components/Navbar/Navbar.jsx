@@ -39,7 +39,7 @@ const Navbar = () => {
         <div ref={navref} className='nav'>
           <ul onClick={(event)=>{
             if(event.target.nodeName == 'A'){
-              console.log("jksdjf")
+              handleNavResponsive();
             }
           }} className='flex justify-center items-center flex-col md:flex-row'>
             {

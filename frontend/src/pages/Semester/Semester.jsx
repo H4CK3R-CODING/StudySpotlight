@@ -51,7 +51,7 @@ const Semester = () => {
                     navigate("/notes",{state: {data: data}});
                     
                   } catch (error) {
-                    if(error.message == "invalid signature"){
+                    if(error.message == "invalid signature" || error.message == "invalid token"){
                       console.log("error")
                       toast.error("Your attempt to access it is incorrect.")
                       return;
