@@ -24,7 +24,7 @@ const ProgressorBar = ({info}) => {
         </div>
         <div
           ref={processRef}
-          className="relative w-[450px] rounded-lg bg-red-500 h-2 overflow-hidden"
+          className="relative rounded-lg bg-red-500 h-2 overflow-hidden w-[300px] sm:w-[450px] lg:w-[600px]"
         >
           <span className="bg-blue-600 absolute top-0 left-0 h-full w-0 rounded-lg transition-all duration-1000"></span>
         </div>
