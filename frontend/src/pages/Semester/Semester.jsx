@@ -20,9 +20,9 @@ const Semester = () => {
     },[])
 
   return (
-    <div className='flex flex-col justify-center items-center mt-10'>
-      <div className='w-1/2'>
-        <h1 className='text-4xl font-semibold text-center font-[Poppins] my-4' >Study Materials</h1>
+    <div className='flex flex-col justify-center items-center my-20'>
+      <div className='w-[90vw] lg:w-1/2'>
+        <h1 className='text-4xl font-semibold text-center font-[Poppins] mb-8' >Study Materials</h1>
         <form>
           {data.map((ele, idx) => {
             return <Option key={idx} opt={ele} />;

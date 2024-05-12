@@ -4,8 +4,8 @@ import { FaWhatsapp } from "react-icons/fa6";
 const JoinUs = () => {
   return (
     <div className='flex flex-col justify-center items-center'>
-      <h1 className='text-4xl font-semibold font-[Poppins] my-4'>Join Our Community Team!</h1>
-      <div className='w-1/2 mt-2'>
+      <h1 className='text-4xl font-semibold font-[Poppins] my-8 text-center'>Join Our Community Team!</h1>
+      <div className='w-[90vw] mt-2 sm:w-1/2'>
         <h1 className='text-xl font-[Poppins] font-semibold'>Summary : </h1>
         <p className='font-[Poppins] font-[450]'>If you wish to contribute your notes to the site, please feel free to message me on WhatsApp. We welcome your valuable contributions.</p>
         <p className='font-[Poppins] font-[400] mt-6'>I hope this message finds you well. I am reaching out to discuss a potential collaboration opportunity that could benefit both our platforms and the wider community of learners and enthusiasts.</p>
