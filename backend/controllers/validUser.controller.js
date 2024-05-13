@@ -51,7 +51,7 @@ const validUser = async (req,res)=>{
                 from: process.env.SMTP_MAIL,
                 to: username,
                 subject: "Hello ✔", // Subject line
-                text: "Hello world?", // plain text body
+                text: "Hello?", // plain text body
                 html: "<b>Hello world?</b>", // html body
             }
             
