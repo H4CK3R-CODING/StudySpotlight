@@ -9,14 +9,12 @@ const Home = () => {
       label: "Get Notes",
       onclick: ()=>{
         navigate("/sem");
-        console.log("get notes");
       }
     },
     {
       label: "Join Community",
       onclick: ()=>{
         navigate("/join")
-        console.log("join community");
       }
     },
   ]

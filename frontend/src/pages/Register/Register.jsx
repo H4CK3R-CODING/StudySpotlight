@@ -8,8 +8,10 @@ import axios from 'axios'
 import { useRecoilValue } from 'recoil'
 import Atom from '../../Recoil/Atom'
 import toast from "react-hot-toast"
+import Loading from '../../components/Loading'
 
 const Register = () => {
+    const [isLoading, setIsLoading] = useState(false);
     const [name, setName] = useState("");
     const [gmail, setGmail] = useState("")
     const [password, setPassword] = useState("")
@@ -52,6 +54,7 @@ const Register = () => {
         onclick: async (event)=>{
             try {
                 event.preventDefault();
+                setIsLoading(true)
                 if(name == "" || semester == "" || branch == "" || gmail == "" || password == "" ){
                     toast.error("Please Fill Up Username and Password")
                     return;
@@ -85,6 +88,7 @@ const Register = () => {
             } catch (error) {
                 toast.error("Fill up all the detail");
             }
+            setIsLoading(false)
         }
       };
     
@@ -99,7 +103,9 @@ const Register = () => {
             {data.map((ele, idx) => {
                 return <Option key={idx} opt={ele} />;
             })}
-            <Btn btninfo={btninfo}/>
+            {
+                isLoading ? <Loading/> : <Btn btninfo={btninfo}/>
+            }
         </form>
     </div>
   )

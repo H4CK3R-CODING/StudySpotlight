@@ -8,8 +8,10 @@ import axios from "axios";
 
 import data from "../../../utils/optionData";
 import toast from "react-hot-toast";
+import Loading from "../../components/Loading";
 
 const Semester = () => {
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
     const [sem, setSem] = useRecoilState(Atom.semAtom);
     const [branch, setBranch] = useRecoilState(Atom.branchAtom);
@@ -27,10 +29,12 @@ const Semester = () => {
           {data.map((ele, idx) => {
             return <Option key={idx} opt={ele} />;
           })}
-          <Btn
+          {
+            isLoading ? <Loading/> : <Btn
             btninfo={{
               onclick: async (event) => {
                 event.preventDefault();
+                setIsLoading(true);
                 // console.log("Next -->");
                 try {
                     const config = {
@@ -63,10 +67,12 @@ const Semester = () => {
                     }
                     toast.error("Some Error Occure--Try Again Later")
                 }
+                setIsLoading(false)
               },
               label: "Next -->",
             }}
           />
+          }
         </form>
       </div>
     </div>

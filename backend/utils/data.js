@@ -154,12 +154,32 @@ const data =  {
         ],
         5: [
             {
-                subject: "",
-                link: ""
+                subject: "Algorithm",
+                link: "https://drive.google.com/drive/folders/1u5H0s32IJmANjMl22dGpKCvUUpbLQOdQ?usp=sharing"
             },
             {
-                subject: "",
-                link: ""
+                subject: "AUTOMATA",
+                link: "https://drive.google.com/drive/folders/1ggO07lROvpHpv8lR501k9wGNrDVM54ub?usp=sharing"
+            },
+            {
+                subject: "COA",
+                link: "https://drive.google.com/drive/folders/1iC1GY5vz4D4g35q1bcKYAo4G2sBXxU_O?usp=sharing"
+            },
+            {
+                subject: "DBMS",
+                link: "https://drive.google.com/drive/folders/1kppc71Z51Aiu6h4hXlf7M9nDR8687j3C?usp=sharing"
+            },
+            {
+                subject: "EIT",
+                link: "https://drive.google.com/drive/folders/1nFQCTLc7Di2wJiM5RZbFaeWAHUv7BLSN?usp=sharing"
+            },
+            {
+                subject: "ENERY R_M",
+                link: "https://drive.google.com/drive/folders/1sIRwOLC8dpI5UukeuwRjBh_AaQDpZwNL?usp=sharing"
+            },
+            {
+                subject: "M_I",
+                link: "https://drive.google.com/drive/folders/1slunSyUi9L_7NISDVI_sd8rTEQqNhqHC?usp=sharing"
             },
         ],
     }

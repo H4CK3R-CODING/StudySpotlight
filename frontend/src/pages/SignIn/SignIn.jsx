@@ -4,8 +4,10 @@ import Btn from '../Home/Btn'
 import axios from 'axios'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
+import Loading from '../../components/Loading'
 
 const SignIn = () => {
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -37,6 +39,7 @@ const SignIn = () => {
         label: "Sign In",
         onclick: async (event)=>{
             try {
+                setIsLoading(true)
                 event.preventDefault();
                 if(username == "" || password == ""){
                     toast.error("Please Fill Up Username and Password")
@@ -71,6 +74,7 @@ const SignIn = () => {
             } catch (error) {
                 toast.error("Try Again Some Issue Occur");
             }
+            setIsLoading(false)
         }
       };
 
@@ -83,7 +87,9 @@ const SignIn = () => {
                     return <InputContainer key={idx} detail={ele}/>
                 })
             }
-            <Btn btninfo={btninfo}/>
+            {
+                isLoading ? <Loading/> : <Btn btninfo={btninfo}/>
+            }
         </form>
     </div>
   )
