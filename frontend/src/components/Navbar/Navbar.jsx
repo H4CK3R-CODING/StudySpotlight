@@ -32,8 +32,8 @@ const Navbar = () => {
   ]
 
   return (
-    <div className='static h-16 z-50'>
-      <div className='fixed w-full h-16 flex justify-between items-center bg-gradient-to-r from-[#50FFB1] to-[#4FB286]'>
+    <div className='static h-16'>
+      <div className='fixed z-50 w-full h-16 flex justify-between items-center bg-gradient-to-r from-[#50FFB1] to-[#4FB286]'>
         {/* <img className='w-40 h-16' src="./logowbc.png" alt="logowbc" /> */}
         <Link to={"/"} className='text-white font-semibold italic p-2 m-2 text-3xl'>StudySpotlight</Link>
         <div ref={navref} className='nav'>

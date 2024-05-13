@@ -59,7 +59,6 @@ const Register = () => {
                     toast.error("Please Fill Up Username and Password")
                     return;
                 }
-                console.log("ne")
                 const config = {
                     headers: {
                         'Content-Type': 'application/json'
@@ -88,7 +87,9 @@ const Register = () => {
             } catch (error) {
                 toast.error("Fill up all the detail");
             }
-            setIsLoading(false)
+            finally{
+                setIsLoading(false)
+            }
         }
       };
     

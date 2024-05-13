@@ -11,7 +11,7 @@ const ProgressorBar = ({info}) => {
             Array.from(processRef.current.children).map((ele,idx)=>{
                 ele.style.width = `${((info.quantity*100)/totalMaterial)}%`
             })
-        }, 1000)
+        }, 1000)  
         // processRef.current.style.width = [`${((info.quantity*100)/totalMaterial)}%`]
         // console.log(processRef.current.children[0].style.width)
         // console.log(totalMaterial)
@@ -26,9 +26,9 @@ const ProgressorBar = ({info}) => {
         </div>
         <div
           ref={processRef}
-          className="relative rounded-lg bg-red-500 h-2 overflow-hidden w-[300px] sm:w-[450px] lg:w-[600px]"
+          className="relative rounded-lg bg-gray-200 h-2 overflow-hidden w-[300px] sm:w-[450px] lg:w-[600px]"
         >
-          <span className="bg-blue-600 absolute top-0 left-0 h-full w-0 rounded-lg transition-all duration-1000"></span>
+          <span className="bg-black absolute top-0 left-0 h-full w-0 rounded-lg transition-all duration-1000"></span>
         </div>
       </div>
     </div>

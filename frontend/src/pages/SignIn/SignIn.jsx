@@ -39,8 +39,8 @@ const SignIn = () => {
         label: "Sign In",
         onclick: async (event)=>{
             try {
-                setIsLoading(true)
                 event.preventDefault();
+                setIsLoading(true)
                 if(username == "" || password == ""){
                     toast.error("Please Fill Up Username and Password")
                     return;
@@ -54,7 +54,7 @@ const SignIn = () => {
                     username,
                     password,
                 },config);
-
+                
                 if(data.msg == "Successfully SignIn"){
                     toast.success("Successfully SignIn")
                     navigate('/sem');
@@ -74,11 +74,13 @@ const SignIn = () => {
             } catch (error) {
                 toast.error("Try Again Some Issue Occur");
             }
-            setIsLoading(false)
+            finally{
+                setIsLoading(false)
+            }
         }
-      };
+    };
 
-
+    
   return (
     <div className='flex justify-center items-center my-20'>
         <form className='w-full px-9 md:w-1/2'>
