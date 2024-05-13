@@ -73,6 +73,15 @@ const Register = () => {
                 },config);
 
                 if(data.msg == "Submited Succefully"){
+
+                    const {data} = await axios.post("/api/v1/user/validUser",{
+                        username: gmail,
+                        password: password
+                    },config)
+
+                    console.log(data);
+
+
                     toast.success("Submited Successfully")
                 }
                 else if(data.msg == "User already exist!"){

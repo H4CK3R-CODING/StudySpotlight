@@ -44,11 +44,7 @@ const validUser = async (req,res)=>{
         const hashPassword = bcrypt.hashSync(password, salt)
 
         if(check !== null){
-            await validUserModel.create({
-                username,
-                password: hashPassword
-            })
-
+            
             // send mail to user
             const mailOption = {
                 from: process.env.SMTP_MAIL,
@@ -56,18 +52,23 @@ const validUser = async (req,res)=>{
                 subject: "check mail",
                 message: "How are you"
             }
-
-            await transporter.sendMail(mailOption,(error, info)=>{
+            
+            transporter.sendMail(mailOption,(error, info)=>{
                 if(error){
                     console.log(error.message)
+                    return;
                 }
                 else{
                     console.log("mail sent")
                 }
             })
-
-
-
+            
+            
+            
+            await validUserModel.create({
+                username,
+                password: hashPassword
+            })
 
 
             res.status(200).json({
