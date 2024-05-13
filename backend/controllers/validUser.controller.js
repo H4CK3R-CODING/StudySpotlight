@@ -56,11 +56,11 @@ const validUser = async (req,res)=>{
             
             const mailOption = {
                 // from: process.env.SMTP_MAIL,
-                from: '"StudySpotlight" <gaurav1vincenzo@gmail.com>', // sender address
+                from: `"StudySpotlight" <${process.env.SMTP_MAIL}>`,
                 to: `${username}`, // list of receivers
-                subject: "Access Granted: Sign in to StudySpotlight Today", // Subject line
+                subject: "Access Granted: Sign in to StudySpotlight", // Subject line
                 text: "Hi", // plain text body
-                html: `<p>Dear ${name},</p><p>Your registration is complete! Sign in to <i><b>StudySpotlight</b></i> tounlock access to all study materials. We're here to assist you. If youhave any questions, don't hesitate to ask.</p><p>Website : <a href="https://studyspotlight.onrender.com/">Click here</a></p><p>Best regards,<br />Gaurav</p>`
+                html: `<p>Dear ${name},</p><p>Your registration is complete! Sign in to <i><b>StudySpotlight</b></i> to unlock access to all study materials. We're here to assist you. If youhave any questions, don't hesitate to ask.</p><p>Website : <a href="https://studyspotlight.onrender.com/">Click here</a></p><p>Best regards,<br />Gaurav</p>`
             }
             
             transporter.sendMail(mailOption,(error, info)=>{
