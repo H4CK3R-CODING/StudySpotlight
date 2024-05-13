@@ -61,7 +61,7 @@ const validUser = async (req,res)=>{
                     return;
                 }
                 else{
-                    console.log("mail sent")
+                    console.log(info)
                 }
             })
             
