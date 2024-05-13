@@ -5,7 +5,7 @@ const protectRoutes = async (req,res,next) => {
 
     try {
 
-        const token = req.cookies.jwt;
+        const token = await req.cookies.jwt;
 
         if(!token){
             return res.status(201).json({
@@ -13,7 +13,7 @@ const protectRoutes = async (req,res,next) => {
             })
         }
         
-        const {userId} = jwt.verify(token,process.env.JWT_TOKEN);
+        const {userId} = await jwt.verify(token,process.env.JWT_TOKEN);
         if(!userId){
             return res.status(201).json({
                 msg: "Unauthorized - No Token Provided"
@@ -29,6 +29,10 @@ const protectRoutes = async (req,res,next) => {
                 msg: "You Can't Access that file!"
             })
         }
+
+        // res.status(200).json({
+        //     msg: "User identify"
+        // })
 
         next();
 

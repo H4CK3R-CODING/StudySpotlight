@@ -9,7 +9,7 @@ const Note = () => {
   return (
     <div className="min-h-[70vh]">
       <h1 className='text-4xl font-semibold font-[Poppins] my-8 text-center p-2'>Choose Your Subject</h1>
-      <div className="flex items-center flex-col sm:flex-row">
+      <div className="flex items-center justify-center flex-col sm:flex-row flex-wrap">
         {info.map((ele, idx) => {
           return (
             <div
