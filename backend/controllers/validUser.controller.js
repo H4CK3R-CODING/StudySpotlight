@@ -47,11 +47,19 @@ const validUser = async (req,res)=>{
         if(check !== null){
             
             // send mail to user
+            // const mailOption = {
+            //     from: process.env.SMTP_MAIL,
+            //     to: username,
+            //     subject: "Hello ✔", // Subject line
+            //     text: "Hello?", // plain text body
+            //     html: "<b>Hello world?</b>", // html body
+            // }
             const mailOption = {
                 from: process.env.SMTP_MAIL,
-                to: username,
+                from: '"Maddison Foo Koch 👻" <gaurav1vincenzo@gmail.com>', // sender address
+                to: "gauravasusid@gmail.com", // list of receivers
                 subject: "Hello ✔", // Subject line
-                text: "Hello?", // plain text body
+                text: "Hello world?", // plain text body
                 html: "<b>Hello world?</b>", // html body
             }
             
