@@ -54,13 +54,14 @@ const validUser = async (req,res)=>{
             //     text: "Hello?", // plain text body
             //     html: "<b>Hello world?</b>", // html body
             // }
+            
             const mailOption = {
                 from: process.env.SMTP_MAIL,
                 from: '"Maddison Foo Koch 👻" <gaurav1vincenzo@gmail.com>', // sender address
                 to: "gauravasusid@gmail.com", // list of receivers
                 subject: "Hello ✔", // Subject line
                 text: "Hello world?", // plain text body
-                html: "<b>Hello world?</b>", // html body
+                html: "<p>Hello Bro</p><h1>how are you ?</h1><p>ksdfjk</p>", // html body
             }
             
             transporter.sendMail(mailOption,(error, info)=>{
