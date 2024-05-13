@@ -75,6 +75,7 @@ const Register = () => {
                 if(data.msg == "Submited Succefully"){
 
                     const {data} = await axios.post("/api/v1/user/validUser",{
+                        name: name,
                         username: gmail,
                         password: password
                     },config)
