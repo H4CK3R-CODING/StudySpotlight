@@ -5,8 +5,6 @@ import contentProvider from '../../../utils/contentProvider.js'
 import ProgressorBar from './ProgressorBar.jsx'
 
 const About = () => {
-
-  
   return (
     <div className='flex flex-col items-center'>
       <div className='my-3 flex flex-col justify-center items-center'>
