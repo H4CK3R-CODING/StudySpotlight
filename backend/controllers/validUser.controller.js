@@ -3,6 +3,7 @@ import validUserModel from "../models/user/validUser.model.js"
 import User from "../models/user/user.model.js";
 import bcrypt from 'bcrypt'
 import nodemailer from "nodemailer"
+import { text } from "express";
 
 const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
@@ -49,8 +50,9 @@ const validUser = async (req,res)=>{
             const mailOption = {
                 from: process.env.SMTP_MAIL,
                 to: username,
-                subject: "check mail",
-                message: "How are you"
+                subject: "Hello ✔", // Subject line
+                text: "Hello world?", // plain text body
+                html: "<b>Hello world?</b>", // html body
             }
             
             transporter.sendMail(mailOption,(error, info)=>{
