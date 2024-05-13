@@ -1,6 +1,6 @@
 import userAuth from "../zod/userAuth.js";
 import User from "../models/user/user.model.js"
-import validUserAuth from "../zod/validUserAuth.js";
+import signAuth from "../zod/signAuth.js"
 import validUser from "../models/user/validUser.model.js";
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
@@ -47,7 +47,7 @@ const signin = async (req,res)=>{
 
     try {
         const {username, password} = req.body;
-        const {success} = validUserAuth.safeParse(req.body)
+        const {success} = signAuth.safeParse(req.body)
 
         if(!success){
             res.status(201).json({

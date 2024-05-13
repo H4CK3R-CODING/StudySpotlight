@@ -11,6 +11,9 @@ import toast from "react-hot-toast"
 import Loading from '../../components/Loading'
 
 const Register = () => {
+    const navigate = useNavigate();
+
+
     const [isLoading, setIsLoading] = useState(false);
     const [name, setName] = useState("");
     const [gmail, setGmail] = useState("")
@@ -80,10 +83,9 @@ const Register = () => {
                         password: password
                     },config)
 
-                    console.log(data);
-
-
+                    
                     toast.success("Submited Successfully")
+                    navigate("/signin")
                 }
                 else if(data.msg == "User already exist!"){
                     toast.error("User already exist!")
