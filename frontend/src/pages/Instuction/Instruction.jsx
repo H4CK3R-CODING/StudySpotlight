@@ -2,7 +2,7 @@ import React from 'react'
 
 const Instruction = () => {
   return (
-    <div className='flex flex-col justify-center items-center'>
+    <div className='flex flex-col justify-center items-center my-8'>
       <div className='w-[90vw]'>
         <h1 className='text-5xl font-semibold font-[Poppins] my-8'>Instructions</h1>
         <div className=' mt-2'>

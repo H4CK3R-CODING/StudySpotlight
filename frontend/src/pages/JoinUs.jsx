@@ -14,7 +14,7 @@ const JoinUs = () => {
       </div>
 
       <div className='flex justify-center items-center gap-3 my-3 cursor-pointer border-2 border-black p-2 rounded-lg' onClick={()=>{
-        window.open("https://chat.whatsapp.com/D9Psnqofh5oJE2boiUUoz4")
+        window.open("https://chat.whatsapp.com/CQBHpet1VaRAPXoAexUst1")
       }}>
         <h1 className='font-semibold font-[Poppins] '>WhatsApp Community</h1>
         <FaWhatsapp className='text-green-500 w-8 h-8'/>

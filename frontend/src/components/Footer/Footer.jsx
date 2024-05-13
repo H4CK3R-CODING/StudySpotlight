@@ -43,8 +43,8 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className='w-full h-16 flex justify-center items-center bg-black'>
-          <p className='font-semibold font-[Poppins] text-white'>Copyright © 2024 StudySpotlight®. All rights reserved.</p>
+        <div className='w-full h-20 flex justify-center items-center p-2 bg-black'>
+          <p className='font-semibold font-[Poppins] text-white text-center'>Copyright © 2024 StudySpotlight®. All rights reserved.</p>
         </div>
     </div>
   )
