@@ -1,25 +1,29 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import InputContainer from '../../components/InputContainer/InputContainer'
 import {useNavigate} from "react-router-dom"
 import data from '../../../utils/optionData'
 import Option from '../Semester/Option'
 import Btn from '../Home/Btn'
 import axios from 'axios'
-import { useRecoilValue } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil'
 import Atom from '../../Recoil/Atom'
 import toast from "react-hot-toast"
 import Loading from '../../components/Loading'
 
 const Register = () => {
     const navigate = useNavigate();
+    useEffect(()=>{
+        setSemester(1)
+        setBranch("cse")
 
+    },[])
 
     const [isLoading, setIsLoading] = useState(false);
     const [name, setName] = useState("");
     const [gmail, setGmail] = useState("")
     const [password, setPassword] = useState("")
-    const semester = useRecoilValue(Atom.semAtom)
-    const branch = useRecoilValue(Atom.branchAtom)
+    const [semester, setSemester] = useRecoilState(Atom.semAtom)
+    const [branch, setBranch] = useRecoilState(Atom.branchAtom)
 
 
     const noInput = [
@@ -62,6 +66,10 @@ const Register = () => {
                     toast.error("Please Fill Up Username and Password")
                     return;
                 }
+                console.log(name)
+                console.log(gmail)
+                console.log(semester)
+                console.log(branch)
                 const config = {
                     headers: {
                         'Content-Type': 'application/json'
@@ -85,7 +93,13 @@ const Register = () => {
 
                     
                     toast.success("Submited Successfully")
-                    navigate("/signin")
+                    navigate("/register/verify",{data: {
+                        name,
+                        semester,
+                        branch,
+                        gmail,
+                        password,
+                    }});
                 }
                 else if(data.msg == "User already exist!"){
                     toast.error("User already exist!")

@@ -6,7 +6,7 @@ const genOtp = ()=>{
         const num4 = Math.floor(Math.random()*10)
         const num5 = Math.floor(Math.random()*10)
         const num = num1+num2+num3+num4+num5;
-        return num
+        return num.toString()
     } catch (error) {
         return ""
     }

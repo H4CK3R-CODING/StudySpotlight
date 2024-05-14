@@ -15,6 +15,8 @@ import SignIn from './pages/SignIn/SignIn';
 import JoinUs from './pages/JoinUs';
 import Footer from './components/Footer/Footer';
 import { useEffect } from 'react';
+import Verify from './components/Verify/Verify';
+import Contact from './pages/Contact/Contact';
 
 function App() {
   const {pathname} = useLocation();
@@ -37,6 +39,8 @@ function App() {
           <Route path='/notes' element={<Note/>} ></Route>
           <Route path='/join' element={<JoinUs/>} ></Route>
           <Route path='/register' element={<Register/>} ></Route>
+          <Route path='/register/verify' element={<Verify/>} ></Route>
+          <Route path='/contact' element={<Contact/>} ></Route>
           <Route path='/instuction' element={<Instruction/>} ></Route>
         </Routes>
         <Footer/>

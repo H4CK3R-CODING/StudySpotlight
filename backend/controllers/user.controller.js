@@ -18,11 +18,15 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-let otp = ""
+var otp = "12"
+const setOtp = ()=>{
+}
 
 const userContrller = async (req,res) => {
     try {
         otp = genOtp();
+        // setOtp()
+        console.log(otp)
         const {name, semester, branch, gmail, password} = req.body;
         const {success} = userAuth.safeParse(req.body);
 
@@ -44,32 +48,35 @@ const userContrller = async (req,res) => {
         }
 
         // send otp to mail
-        const mailOption = {
-            from: `"StudySpotlight" <${process.env.SMTP_MAIL}>`,
-            to: `gaurav1vincenzo@gmail.com`, // list of receivers
-            subject: "Verify Your Email Address - StudySpotlight", // Subject line
-            text: "Hi", // plain text body
-            html: `<p>Dear [User's Name],</p><p>Thank you for registering with <b>StudySpotlight</b>. To complete your registration, please verify your email address by entering the One-Time Password (OTP) provided below.</p><p>Your OTP is: <b>[Your OTP</b></p><p>Please enter this OTP on the verification page to confirm your email address. This step is essential toactivate your account and access all the features of <b>StudySpotlight</b>.</p><p>If you did not request this registration or have any issues, please contact our support team immediately.</p><p>Thank you for your cooperation.</p><p>Best regards,<br />Gaurav <br>StudySpotlight Support Team</p>`
-        }
+        // const mailOption = {
+        //     from: `"StudySpotlight" <${process.env.SMTP_MAIL}>`,
+        //     to: `${gmail}`, // list of receivers
+        //     subject: "Verify Your Email Address - StudySpotlight", // Subject line
+        //     text: "Hi", // plain text body
+        //     html: `<p>Dear ${name},</p><p>Thank you for registering with <b>StudySpotlight</b>. To complete your registration, please verify your email address by entering the One-Time Password (OTP) provided below.</p><p>Your OTP is: <b>${otp}</b></p><p>Please enter this OTP on the verification page to confirm your email address. This step is essential to activate your account and access all the features of <b>StudySpotlight</b>.</p><p>If you did not request this registration or have any issues, please contact our support team immediately.</p><p>Thank you for your cooperation.</p><p>Best regards,<br />Gaurav <br>StudySpotlight Support Team</p>`
+        // }
         
-        transporter.sendMail(mailOption,(error, info)=>{
-            if(error){
-                console.log(error.message)
-                return;
-            }
-            else{
-                console.log(info)
-            }
-        })
-
-
-        await User.create({
-            name, semester, branch, gmail, password
-        })
+        // transporter.sendMail(mailOption,(error, info)=>{
+        //     if(error){
+        //         console.log(error.message)
+        //         return;
+        //     }
+        //     else{
+        //         console.log(info)
+        //     }
+        // })
 
         res.status(200).json({
-            msg: "Submited Succefully"
+            name,
+            semester,
+            gmail,
+            password,
+            branch,
+            otp
         })
+        // res.status(200).json({
+        //     msg: "Submited Succefully"
+        // })
         
     } catch (error) {
         console.log("error occur in the user.controller.js ===> "+ error.message)
@@ -143,3 +150,4 @@ const logout = (req,res) =>{
 }
 
 export {userContrller, signin, logout};
+export default otp;

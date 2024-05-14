@@ -26,12 +26,12 @@ const Navbar = () => {
     {
       label: "Sign In",
       to: "/signin",
-      col: "bg-[#343A40]"
+      col: "bg-blue-500"
     },
     {
       label: "Register",
       to: "/register",
-      col: "bg-[#008080]"
+      col: "bg-blue-500"
       // col: "bg-[#008080]"
     },
     // {
