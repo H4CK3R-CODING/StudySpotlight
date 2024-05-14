@@ -48,25 +48,8 @@ const userContrller = async (req,res) => {
             from: `"StudySpotlight" <${process.env.SMTP_MAIL}>`,
             to: `kjasdfk`, // list of receivers
             subject: "Verify Your Email Address - StudySpotlight", // Subject line
-            html: `<p>Dear [User's Name],</p>
-            <p>
-            Thank you for registering with <b>StudySpotlight</b>. To complete your registration, please verify your email address by entering the One-Time Password (OTP) provided below.
-            </p>
-            <p>
-            Your OTP is: <b>[Your OTP]</b> 
-            </p>
-            <p>
-            Please enter this OTP on the verification page to confirm your email address. This step is essential to activate your account and access all the features of <b>StudySpotlight</b>.
-            </p>
-            <p>If you did not request this registration or have any issues, please contact our support team immediately.</p>
-            <p>
-            Thank you for your cooperation.
-            </p>
-            <p>
-            Best regards,<br />
-            Gaurav <br>
-            StudySpotlight Support Team
-            </p>`
+            text: "Hi", // plain text body
+            html: `<p>Dear [User's Name],</p><p>Thank you for registering with <b>StudySpotlight</b>. To complete your registration, please verify your email address by entering the One-Time Password (OTP) provided below.</p><p>Your OTP is: <b>[Your OTP</b></p><p>Please enter this OTP on the verification page to confirm your email address. This step is essential toactivate your account and access all the features of <b>StudySpotlight</b>.</p><p>If you did not request this registration or have any issues, please contact our support team immediately.</p><p>Thank you for your cooperation.</p><p>Best regards,<br />Gaurav <br>StudySpotlight Support Team</p>`
         }
         
         transporter.sendMail(mailOption,(error, info)=>{
