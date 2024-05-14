@@ -5,9 +5,13 @@ import axios from 'axios'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import Loading from '../../components/Loading'
+import { useSetRecoilState } from 'recoil'
+import Atom from '../../Recoil/Atom'
 
 const SignIn = () => {
     const [isLoading, setIsLoading] = useState(false);
+    const setIsLoggedIn = useSetRecoilState(Atom.isLoggedIn)
+
     const navigate = useNavigate();
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -57,6 +61,11 @@ const SignIn = () => {
                 
                 if(data.msg == "Successfully SignIn"){
                     toast.success("Successfully SignIn")
+                    setIsLoggedIn(true)
+                    // localStorage.setItem("isLoggedIn", {
+                    //     value: true,
+                    //     expiry: now.getTime() + 15  * 24 * 60 * 60
+                    // });
                     navigate('/sem');
                 }
                 else if(data.msg == "Input are not correct"){

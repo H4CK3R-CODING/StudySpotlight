@@ -16,11 +16,17 @@ const totalMaterial = atom({
     default: 10.0
 })
 
+const isLoggedIn = atom({
+    key: "isLoggedIn",
+    default: false
+})
+
 
 const Atom = {
     semAtom,
     branchAtom,
-    totalMaterial
+    totalMaterial,
+    isLoggedIn
 }
 
 export default Atom;

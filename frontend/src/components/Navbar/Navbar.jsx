@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { FaBars, FaTimes } from "react-icons/fa";
 import NavBtn from './NavBtn'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 import "../../Style/Navbar.css";
 
 const Navbar = () => {
@@ -15,19 +16,32 @@ const Navbar = () => {
     {
       label: "Home",
       to: "/",
+      col: "bg-blue-500"
     },
     {
       label: "About",
       to: "/about",
+      col: "bg-blue-500"
     },
     {
       label: "Sign In",
       to: "/signin",
+      col: "bg-[#343A40]"
     },
     {
       label: "Register",
       to: "/register",
+      col: "bg-[#008080]"
+      // col: "bg-[#008080]"
     },
+    // {
+    //   label: "Logout",
+    //   to: "",
+    //   col: "bg-[#FF5733]",
+    //   onclick: async ()=>{
+    //     await axios.get("/api/v1/user/logout");
+    //   }
+    // },
     
   ]
 

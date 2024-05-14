@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import InputContainer from '../../components/InputContainer/InputContainer'
-
+import {useNavigate} from "react-router-dom"
 import data from '../../../utils/optionData'
 import Option from '../Semester/Option'
 import Btn from '../Home/Btn'
