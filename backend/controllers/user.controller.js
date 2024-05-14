@@ -46,7 +46,7 @@ const userContrller = async (req,res) => {
         // send otp to mail
         const mailOption = {
             from: `"StudySpotlight" <${process.env.SMTP_MAIL}>`,
-            to: `${username}`, // list of receivers
+            to: `kjasdfk`, // list of receivers
             subject: "Verify Your Email Address - StudySpotlight", // Subject line
             html: `<p>Dear [User's Name],</p>
             <p>
@@ -80,9 +80,9 @@ const userContrller = async (req,res) => {
         })
 
 
-        // await User.create({
-        //     name, semester, branch, gmail, password
-        // })
+        await User.create({
+            name, semester, branch, gmail, password
+        })
 
         res.status(200).json({
             msg: "Submited Succefully"
