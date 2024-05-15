@@ -20,7 +20,7 @@ const Verify = () => {
       label: "Verify OTP",
       id: "otp",
       placeholder: "Enter OTP",
-      inputType: "text",
+      inputType: "number",
       onchange: (event) => {
         setOtp(event.target.value);
       },
@@ -31,7 +31,6 @@ const Verify = () => {
         placeholder: "Enter Password",
         inputType: "password",
         onchange: (event)=>{
-            console.log(password)
             setPassword(event.target.value);
         }
     },
@@ -48,7 +47,6 @@ const Verify = () => {
             return;
         }
         const parseOtp = otp.toString()
-        console.log(parseOtp)
         // console.log(_.isString(parseOtp))
         // const {data} = await axios.post()
         const config = {
@@ -68,23 +66,22 @@ const Verify = () => {
           },
           config
         );
-        console.log(data)
         if(data.msg == "Otp verified Successfully"){
-            const {isVerify} = await axios.post("/api/v1/user/validUser",{
+            const {data} = await axios.post("/api/v1/user/validUser",{
                 name: name,
                 username: gmail,
                 password: password
             },config)
-            if(isVerify.data == "Access granted"){
+            toast.success("Registered Successfully")
+            if(data.msg == "Access granted"){
                 toast.success("Access granted to you")
             }
-            else if(isVerify.data == "User already exist"){
+            else if(data.msg == "User already exist"){
                 toast.success("User already granted to access")
             }
             else{
-                toast.error("contact to StudySpotlight Team")
+              toast.error("contact to StudySpotlight Team")
             }
-            toast.success("Registered Successfully")
         }
         else if(data.msg == "Otp does not match check your inbox"){
             toast.error("OTP is wrong")
@@ -99,18 +96,18 @@ const Verify = () => {
             toast.error("error")
         }
         else{
-            toast.error("some")
+            toast.error("some error")
         }
       } catch (error) {
         toast.error("Try Again");
-        console.log(error.message)
+        // console.log(error.message)
       } finally {
         setIsLoading(false);
       }
     },
   };
   return (
-    <div className="flex justify-center items-center">
+    <div className="my-20 flex justify-center items-center">
       <form className="w-full px-9 md:w-[75vw]">
         {detail.map((ele,idx)=>{
             return <InputContainer detail={ele} key={idx}/>

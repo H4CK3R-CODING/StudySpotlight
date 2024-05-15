@@ -10,6 +10,8 @@ import Atom from '../../Recoil/Atom'
 import toast from "react-hot-toast"
 import Loading from '../../components/Loading'
 
+import validateEmail from '../../../utils/validateEmail.js'
+
 const Register = () => {
     const navigate = useNavigate();
     useEffect(()=>{
@@ -23,6 +25,8 @@ const Register = () => {
     const [gmail, setGmail] = useState("")
     const [semester, setSemester] = useRecoilState(Atom.semAtom)
     const [branch, setBranch] = useRecoilState(Atom.branchAtom)
+
+    
 
 
     const noInput = [
@@ -57,10 +61,10 @@ const Register = () => {
                     toast.error("Please Fill Up Username and Password")
                     return;
                 }
-                console.log(name)
-                console.log(gmail)
-                console.log(semester)
-                console.log(branch)
+                if(!validateEmail(gmail)){
+                    toast.error("Write Valid Gmail")
+                    return;
+                }
                 const config = {
                     headers: {
                         'Content-Type': 'application/json'
@@ -72,8 +76,6 @@ const Register = () => {
                     branch,
                     gmail,
                 },config);
-
-                console.log(data.msg)
                 if(data.msg == "OTP sent Successfully"){
                     navigate("/register/verify",{state: {data: {name,semester,branch,gmail}}})
                 }
