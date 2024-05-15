@@ -3,10 +3,12 @@ import Loading from "../Loading";
 import Btn from "../../pages/Home/Btn";
 import InputContainer from "../InputContainer/InputContainer";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
+
 const Verify = () => {
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [otp, setOtp] = useState(null);
   const [password, setPassword] = useState("")
@@ -75,6 +77,7 @@ const Verify = () => {
             toast.success("Registered Successfully")
             if(data.msg == "Access granted"){
                 toast.success("Access granted to you")
+                navigate("/signin")
             }
             else if(data.msg == "User already exist"){
                 toast.success("User already granted to access")

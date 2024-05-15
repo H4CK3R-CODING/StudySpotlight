@@ -4,8 +4,14 @@ import NavBtn from './NavBtn'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import "../../Style/Navbar.css";
+import Atom from "../../Recoil/Atom"
+import { useRecoilState } from 'recoil';
 
 const Navbar = () => {
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(Atom.isLoggedIn)
+  console.log(isLoggedIn)
+
+
   const navref = useRef();
 
   const handleNavResponsive = () =>{
@@ -26,12 +32,14 @@ const Navbar = () => {
     {
       label: "Sign In",
       to: "/signin",
-      col: "bg-blue-500"
+      col: "bg-blue-500",
+      dis: `${isLoggedIn ? "hidden" : "block"}`,
     },
     {
       label: "Register",
       to: "/register",
-      col: "bg-blue-500"
+      col: "bg-blue-500",
+      dis: `${isLoggedIn ? "hidden" : "block"}`,
       // col: "bg-[#008080]"
     },
     {
@@ -40,14 +48,16 @@ const Navbar = () => {
       col: "bg-blue-500"
       // col: "bg-[#008080]"
     },
-    // {
-    //   label: "Logout",
-    //   to: "",
-    //   col: "bg-[#FF5733]",
-    //   onclick: async ()=>{
-    //     await axios.get("/api/v1/user/logout");
-    //   }
-    // },
+    {
+      label: "Logout",
+      to: "",
+      col: "bg-[#FF5733]",
+      dis: `${isLoggedIn ? "block" : "hidden"}`,
+      onclick: async ()=>{
+        await axios.get("/api/v1/user/logout");
+        setIsLoggedIn(false)
+      }
+    },
     
   ]
 

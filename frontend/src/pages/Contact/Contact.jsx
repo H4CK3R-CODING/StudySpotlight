@@ -9,6 +9,7 @@ import Atom from '../../Recoil/Atom';
 import validateEmail from '../../../utils/validateEmail';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 
 const Contact = () => {
@@ -17,6 +18,7 @@ const Contact = () => {
         setBranch("cse")
     },[])
 
+    const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
     const [name, setName] = useState("");
     const [gmail, setGmail] = useState("")
@@ -75,6 +77,7 @@ const Contact = () => {
 
                 if(data.msg == "Sent"){
                     toast.success("Your Query Submitted")
+                    navigate("/");
                 }
                 else if(data.msg == "Input are wrong"){
                     toast.error("Your Input are not correct")

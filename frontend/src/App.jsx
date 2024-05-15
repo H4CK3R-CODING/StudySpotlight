@@ -1,6 +1,7 @@
 import './App.css'
 import {
-  RecoilRoot
+  RecoilRoot,
+  useSetRecoilState
 } from 'recoil';
 import { Route, Routes, useLocation } from 'react-router-dom'
 import Navbar from "./components/Navbar/Navbar"
@@ -17,16 +18,42 @@ import Footer from './components/Footer/Footer';
 import { useEffect } from 'react';
 import Verify from './components/Verify/Verify';
 import Contact from './pages/Contact/Contact';
+import Atom from './Recoil/Atom';
+import axios from 'axios';
 
 function App() {
   const {pathname} = useLocation();
+  const setIsLoggedIn = useSetRecoilState(Atom.isLoggedIn)
+  const checkLoggedIn = async ()=>{
+    try {
+      const config = {
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      }
+      const {data} = await axios.get("/api/v1/user/isLoggedIn",config);
+      console.log(data)
+      if(data.msg == "User getted"){
+        setIsLoggedIn(true)
+      }
+      else{
+        setIsLoggedIn(false)
+      }
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+  useEffect( ()=>{
+    checkLoggedIn();
+  },[])
 
   useEffect(()=>{
     window.scrollTo({top: 0, behavior: "smooth"})
   },[pathname])
+
   return (
     <>
-      <RecoilRoot>
         <Navbar/>
         <Toaster
           position="top-center"
@@ -44,7 +71,6 @@ function App() {
           <Route path='/instuction' element={<Instruction/>} ></Route>
         </Routes>
         <Footer/>
-      </RecoilRoot>
     </>
   )
 }
