@@ -34,6 +34,12 @@ const Navbar = () => {
       col: "bg-blue-500"
       // col: "bg-[#008080]"
     },
+    {
+      label: "Contact",
+      to: "/contact",
+      col: "bg-blue-500"
+      // col: "bg-[#008080]"
+    },
     // {
     //   label: "Logout",
     //   to: "",

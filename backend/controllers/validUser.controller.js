@@ -82,8 +82,7 @@ const validUser = async (req,res)=>{
 
 
             res.status(200).json({
-                username,
-                password
+                msg: "Access granted"
             })
         }
         else{

@@ -2,11 +2,12 @@ import userAuth from "../zod/userAuth.js";
 import User from "../models/user/user.model.js"
 import signAuth from "../zod/signAuth.js"
 import validUser from "../models/user/validUser.model.js";
-import bcrypt from 'bcrypt'
+import bcrypt, { hash } from 'bcrypt'
 import jwt from 'jsonwebtoken'
 
 import nodemailer from "nodemailer"
 import genOtp from "../utils/genOtp.js";
+import Otp from "../models/otp.model.js";
 
 const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
@@ -18,18 +19,11 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-var otp = "12"
-const setOtp = ()=>{
-}
-
 const userContrller = async (req,res) => {
     try {
-        otp = genOtp();
-        // setOtp()
-        console.log(otp)
-        const {name, semester, branch, gmail, password} = req.body;
+        const {name, semester, branch, gmail} = req.body;
         const {success} = userAuth.safeParse(req.body);
-
+        
         if(!success){
             console.log("Input details are wrong")
             res.status(401).json({
@@ -37,46 +31,81 @@ const userContrller = async (req,res) => {
             });
         }
 
-        const isExist = await User.findOne({
+        const verified = await User.findOne({
             gmail
+        })
+        if(verified){
+            res.status(201).json({
+                msg: "User already exist"
+            }) 
+            return;
+        }
+
+        const otp = genOtp();
+        console.log(otp)
+
+        const salt = bcrypt.genSaltSync(10);
+        const hashOtp = bcrypt.hashSync(otp, salt)
+
+        const isExist = await Otp.findOne({
+            userId: gmail
+        })
+        
+        // send otp to mail
+        const mailOption = {
+            from: `"StudySpotlight" <${process.env.SMTP_MAIL}>`,
+            to: `${gmail}`, // list of receivers
+            subject: "Verify Your Email Address - StudySpotlight", // Subject line
+            text: "Hi", // plain text body
+            html: `<p>Dear ${name},</p><p>Thank you for registering with <b>StudySpotlight</b>. To complete your registration, please verify your email address by entering the One-Time Password (OTP) provided below.</p><p>Your OTP is: <b>${otp}</b></p><p>Please enter this OTP on the verification page to confirm your email address. This step is essential to activate your account and access all the features of <b>StudySpotlight</b>.</p><p>If you did not request this registration or have any issues, please contact our support team immediately.</p><p>Thank you for your cooperation.</p><p>Best regards,<br />Gaurav <br>StudySpotlight Support Team</p>`
+        }
+        
+        transporter.sendMail(mailOption,(error, info)=>{
+            if(error){
+                console.log(error.message)
+                return;
+            }
+            else{
+                console.log(info)
+            }
         })
 
         if(isExist){
-            return res.status(201).json({
-                msg: "User already exist!"
+            await Otp.updateOne({
+                userId: gmail
+            },{
+                otp: hashOtp,
+                createAt: Date.now(),
+                expiredAt: Date.now() + 5*60*1000
+            }),
+            {
+                new: true
+            }
+        }
+        else{
+            await Otp.create({
+                userId: gmail,
+                otp: hashOtp,
+                createAt: Date.now(),
+                expiredAt: Date.now() + 5*60*1000
             })
+
         }
 
-        // send otp to mail
-        // const mailOption = {
-        //     from: `"StudySpotlight" <${process.env.SMTP_MAIL}>`,
-        //     to: `${gmail}`, // list of receivers
-        //     subject: "Verify Your Email Address - StudySpotlight", // Subject line
-        //     text: "Hi", // plain text body
-        //     html: `<p>Dear ${name},</p><p>Thank you for registering with <b>StudySpotlight</b>. To complete your registration, please verify your email address by entering the One-Time Password (OTP) provided below.</p><p>Your OTP is: <b>${otp}</b></p><p>Please enter this OTP on the verification page to confirm your email address. This step is essential to activate your account and access all the features of <b>StudySpotlight</b>.</p><p>If you did not request this registration or have any issues, please contact our support team immediately.</p><p>Thank you for your cooperation.</p><p>Best regards,<br />Gaurav <br>StudySpotlight Support Team</p>`
-        // }
-        
-        // transporter.sendMail(mailOption,(error, info)=>{
-        //     if(error){
-        //         console.log(error.message)
-        //         return;
-        //     }
-        //     else{
-        //         console.log(info)
-        //     }
-        // })
 
-        res.status(200).json({
-            name,
-            semester,
-            gmail,
-            password,
-            branch,
-            otp
-        })
+
+
         // res.status(200).json({
-        //     msg: "Submited Succefully"
+        //     name,
+        //     semester,
+        //     gmail,
+        //     password,
+        //     branch,
+        //     otp
         // })
+        res.status(200).json({
+            msg: "OTP sent Successfully"
+        })
         
     } catch (error) {
         console.log("error occur in the user.controller.js ===> "+ error.message)
@@ -150,4 +179,3 @@ const logout = (req,res) =>{
 }
 
 export {userContrller, signin, logout};
-export default otp;

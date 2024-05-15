@@ -21,7 +21,6 @@ const Register = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [name, setName] = useState("");
     const [gmail, setGmail] = useState("")
-    const [password, setPassword] = useState("")
     const [semester, setSemester] = useRecoilState(Atom.semAtom)
     const [branch, setBranch] = useRecoilState(Atom.branchAtom)
 
@@ -45,15 +44,7 @@ const Register = () => {
                 setGmail(event.target.value);
             }
         },
-        {
-            label: "Password",
-            id: "password",
-            placeholder: "Enter Password",
-            inputType: "password",
-            onchange: (event)=>{
-                setPassword(event.target.value);
-            }
-        },
+        
     ];
 
     const btninfo = {
@@ -62,7 +53,7 @@ const Register = () => {
             try {
                 event.preventDefault();
                 setIsLoading(true)
-                if(name == "" || semester == "" || branch == "" || gmail == "" || password == "" ){
+                if(name == "" || semester == "" || branch == "" || gmail == ""){
                     toast.error("Please Fill Up Username and Password")
                     return;
                 }
@@ -80,35 +71,17 @@ const Register = () => {
                     semester,
                     branch,
                     gmail,
-                    password,
                 },config);
 
-                if(data.msg == "Submited Succefully"){
-
-                    const {data} = await axios.post("/api/v1/user/validUser",{
-                        name: name,
-                        username: gmail,
-                        password: password
-                    },config)
-
-                    
-                    toast.success("Submited Successfully")
-                    navigate("/register/verify",{data: {
-                        name,
-                        semester,
-                        branch,
-                        gmail,
-                        password,
-                    }});
+                console.log(data.msg)
+                if(data.msg == "OTP sent Successfully"){
+                    navigate("/register/verify",{state: {data: {name,semester,branch,gmail}}})
                 }
-                else if(data.msg == "User already exist!"){
-                    toast.error("User already exist!")
+                else if(data.msg == "User already exist"){
+                    toast.success("User already exist")
                 }
-                else if(data.msg == "Some mistake in your Inputs"){
-                    toast.error("Some mistake in your Inputs")
-                }
-                else{
-                    toast.error("Fill Again")
+                else{                                          
+                    toast.error("Some error fill query form");
                 }
             } catch (error) {
                 toast.error("Fill up all the detail");

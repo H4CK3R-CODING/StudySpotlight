@@ -90,8 +90,8 @@ const Contact = () => {
         }
       };
   return (
-    <div className=' flex flex-col justify-center items-center my-16'>
-        <h1 className='text-4xl p-2 m-2 font-semibold'>Contact & Query Form</h1>
+    <div className=' flex flex-col justify-center items-center my-14'>
+        <h1 className='text-4xl p-2 m-2 font-semibold text-center'>Contact & Query Form</h1>
         <form className='w-full px-9 md:w-[75vw]'>
             {
                 noInput.map((ele,idx)=>{
@@ -101,6 +101,7 @@ const Contact = () => {
             {data.map((ele, idx) => {
                 return <Option key={idx} opt={ele} />;
             })}
+            <h1 className='text-xl font-[450] cursor-pointer font-[Poppins] ml-1'>Write Your Query here</h1>
             <textarea className='font-[Poppins] font-[400] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg p-2 m-1 focus:ring-blue-500 focus:border-blue-500 block w-full h-40' placeholder='Write Any Query you have.' name="query" id="query" required></textarea>
             {
                 isLoading ? <Loading/> : <Btn btninfo={btninfo}/>
