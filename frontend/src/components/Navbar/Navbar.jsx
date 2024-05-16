@@ -9,7 +9,6 @@ import { useRecoilState } from 'recoil';
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(Atom.isLoggedIn)
-  console.log(isLoggedIn)
 
 
   const navref = useRef();

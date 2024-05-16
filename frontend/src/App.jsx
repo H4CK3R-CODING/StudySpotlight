@@ -32,7 +32,6 @@ function App() {
           }
       }
       const {data} = await axios.get("/api/v1/user/isLoggedIn",config);
-      console.log(data)
       if(data.msg == "User getted"){
         setIsLoggedIn(true)
       }

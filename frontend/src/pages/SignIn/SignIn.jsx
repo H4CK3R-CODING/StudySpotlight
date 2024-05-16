@@ -11,7 +11,7 @@ import Atom from '../../Recoil/Atom'
 const SignIn = () => {
     const [isLoading, setIsLoading] = useState(false);
     const setIsLoggedIn = useSetRecoilState(Atom.isLoggedIn)
-
+    
     const navigate = useNavigate();
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -32,6 +32,7 @@ const SignIn = () => {
             id: "password",
             placeholder: "*********",
             inputType: "password",
+            Icon: "",
             onchange: (event)=>{
                 setPassword(event.target.value);
             }

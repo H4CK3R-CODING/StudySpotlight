@@ -66,11 +66,12 @@ const Contact = () => {
                         'Content-Type': 'application/json'
                     }
                 }
+                const semesterInt = parseInt(semester);
 
                 const {data} = await axios.post("/api/v1/user/contact",{
                     name,
                     gmail,
-                    semester,
+                    semester: semesterInt,
                     branch,
                     query
                 },config)

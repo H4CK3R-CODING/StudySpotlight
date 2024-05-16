@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Instruction = () => {
   return (
@@ -9,7 +10,7 @@ const Instruction = () => {
           <h1 className='text-xl font-[Poppins] font-semibold'>Step 1 : Registration Process</h1>
           <ul className='list-disc p-4'>
             <li className='font-[Poppins]'>To access our website's features, kindly proceed by registering on our platform. Your registration will grant you access to our exclusive content.</li>
-            <li className='font-[Poppins]'>Once you have completed the registration, please allow some time for our team to process your request. You will receive a notification via email at your registered Gmail address once your access has been granted.</li>
+            <li className='font-[Poppins]'>Once you have completed the registration, please allow some time for our team to process your request. You will receive a notification via email at your registered Gmail address once your access has been granted. <Link className='text-blue-600 underline' to={"/register"}>Click here for Register</Link> </li>
           </ul>
         </div>
         <div className=''>

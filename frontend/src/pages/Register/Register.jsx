@@ -88,7 +88,7 @@ const Register = () => {
                     toast.error("Some error fill query form");
                 }
             } catch (error) {
-                toast.error("Fill up all the detail");
+                toast.error("Error on Backend Side");
             }
             finally{
                 setIsLoading(false)
