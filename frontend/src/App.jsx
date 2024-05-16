@@ -20,6 +20,7 @@ import Verify from './components/Verify/Verify';
 import Contact from './pages/Contact/Contact';
 import Atom from './Recoil/Atom';
 import axios from 'axios';
+import Page404 from './pages/Page404';
 
 function App() {
   const {pathname} = useLocation();
@@ -68,6 +69,7 @@ function App() {
           <Route path='/register/verify' element={<Verify/>} ></Route>
           <Route path='/contact' element={<Contact/>} ></Route>
           <Route path='/instuction' element={<Instruction/>} ></Route>
+          <Route path='*' element={<Page404/>} ></Route>
         </Routes>
         <Footer/>
     </>

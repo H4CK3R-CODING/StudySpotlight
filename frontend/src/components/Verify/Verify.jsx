@@ -49,8 +49,6 @@ const Verify = () => {
             return;
         }
         const parseOtp = otp.toString()
-        // console.log(_.isString(parseOtp))
-        // const {data} = await axios.post()
         const config = {
           headers: {
             "Content-Type": "application/json",
@@ -115,7 +113,9 @@ const Verify = () => {
         {detail.map((ele,idx)=>{
             return <InputContainer detail={ele} key={idx}/>
         })}
-        {isLoading ? <Loading /> : <Btn btninfo={btninfo} />}
+        {
+          isLoading ? <Loading/> : <Btn btninfo={btninfo}/>
+        }
       </form>
     </div>
   );
