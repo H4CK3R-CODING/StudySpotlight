@@ -67,7 +67,9 @@ const Semester = () => {
                     }
                     toast.error("Some Error Occure--Try Again Later")
                 }
-                setIsLoading(false)
+                finally{
+                  setIsLoading(false)
+                }
               },
               label: "Next -->",
             }}
