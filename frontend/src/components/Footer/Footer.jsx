@@ -19,10 +19,10 @@ const Footer = () => {
                 <div className='flex items-center cursor-pointer' onClick={()=>{
                     window.open("https://www.instagram.com/mrgaurav_rathour/")
                 }}>
-                    <FiInstagram className='text-[#ff3300] w-8 h-8'/>
+                    <img className='w-8 h-8' src="./instagram.png" alt="instImg" />
                     <span className='text-white p-2 font-[Poppins] font-[400] text-lg'>Instagram</span>
                 </div>
-                <div className='flex items-center cursor-pointer' onClick={()=>{
+                <div className='flex items-center text-[#cab5ed] cursor-pointer' onClick={()=>{
                     window.open("https://github.com/H4CK3R-CODING")
                 }}>
                     <FaGithub className='w-8 h-8'/>
@@ -31,8 +31,8 @@ const Footer = () => {
                 <div className='flex items-center cursor-pointer' onClick={()=>{
                     window.open("mailto: gaurav1vincenzo@gmail.com")
                 }}>
-                    <BiLogoGmail  className='text-[#d44638] w-8 h-8'/>
-                    <span className='text-white p-2 font-[Poppins] font-[400] text-lg'>GMail</span>
+                    <img className='w-8 h-8' src="./mail.png" alt="mailImg" />
+                    <span className='text-white p-2 font-[Poppins] font-[400] text-lg'>Gmail</span>
                 </div>
                 <div className='flex items-center cursor-pointer' onClick={()=>{
                     window.open("https://wa.me/+919306341448")

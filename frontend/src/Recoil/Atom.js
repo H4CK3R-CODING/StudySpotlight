@@ -13,7 +13,7 @@ const branchAtom = atom({
 
 const totalMaterial = atom({
     key: "totalMaterial",
-    default: 10.0
+    default: 4.20
 })
 
 const isLoggedIn = atom({

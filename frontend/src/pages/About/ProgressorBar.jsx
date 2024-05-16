@@ -21,7 +21,7 @@ const ProgressorBar = ({info}) => {
     <div>
       <div className="my-2">
         <div className="flex justify-between py-2">
-          <span className="text-lg font-semibold">{info.name}</span>
+          <span className="text-lg font-semibold">{info.name}{` {${ info.identity }}`}</span>
           <span className="text-lg font-semibold">{((info.quantity*100)/totalMaterial).toFixed(2)}%</span>
         </div>
         <div
