@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Loading from "../Loading";
+import Loading from "../../components/Loading";
 import Btn from "../../pages/Home/Btn";
 import InputContainer from "../InputContainer/InputContainer";
 import axios from "axios";

@@ -14,18 +14,18 @@ import validateEmail from '../../../utils/validateEmail.js'
 
 const Register = () => {
     const navigate = useNavigate();
-    useEffect(()=>{
-        setSemester(1)
-        setBranch("cse")
-
-    },[])
-
+    
     const [isLoading, setIsLoading] = useState(false);
     const [name, setName] = useState("");
     const [gmail, setGmail] = useState("")
     const [semester, setSemester] = useRecoilState(Atom.semAtom)
     const [branch, setBranch] = useRecoilState(Atom.branchAtom)
+    
+    useEffect(()=>{
+        setSemester(1)
+        setBranch("cse")
 
+    },[])
     
 
 
@@ -54,6 +54,7 @@ const Register = () => {
     const btninfo = {
         label: "Register",
         onclick: async (event)=>{
+            const semesterInt = parseInt(semester)
             try {
                 event.preventDefault();
                 setIsLoading(true)
@@ -72,7 +73,7 @@ const Register = () => {
                 }
                 const {data} = await axios.post("/api/v1/user/register",{
                     name,
-                    semester,
+                    semester: semesterInt,
                     branch,
                     gmail,
                 },config);

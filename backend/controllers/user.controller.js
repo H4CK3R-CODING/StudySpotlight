@@ -23,8 +23,10 @@ const userContrller = async (req,res) => {
     try {
         const {name, semester, branch, gmail} = req.body;
         const {success} = userAuth.safeParse(req.body);
-        
+        const k = userAuth.safeParse(req.body)
+        console.log(k.error)
         if(!success){
+            console.log(success)
             console.log("Input details are wrong")
             res.status(401).json({
                 msg: "Some mistake in your Inputs"
