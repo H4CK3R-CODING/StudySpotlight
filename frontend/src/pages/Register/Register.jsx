@@ -77,6 +77,7 @@ const Register = () => {
                     gmail,
                 },config);
                 if(data.msg == "OTP sent Successfully"){
+                    toast.success("OTP sent to Your Gmail")
                     navigate("/register/verify",{state: {data: {name,semester,branch,gmail}}})
                 }
                 else if(data.msg == "User already exist"){

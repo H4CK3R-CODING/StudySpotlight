@@ -34,6 +34,7 @@ const userContrller = async (req,res) => {
         const verified = await User.findOne({
             gmail
         })
+
         if(verified){
             res.status(201).json({
                 msg: "User already exist"
@@ -42,7 +43,7 @@ const userContrller = async (req,res) => {
         }
 
         const otp = genOtp();
-        // console.log(otp)
+        console.log(otp)
 
         const salt = bcrypt.genSaltSync(10);
         const hashOtp = bcrypt.hashSync(otp, salt)
