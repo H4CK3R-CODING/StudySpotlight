@@ -182,7 +182,225 @@ const data =  {
                 link: "https://drive.google.com/drive/folders/1slunSyUi9L_7NISDVI_sd8rTEQqNhqHC?usp=sharing"
             },
         ],
-    }
+    },
+    ece: {
+        1:[
+            {
+                subject: "BEE",
+                link: "https://drive.google.com/drive/folders/1DsLbSzy9ODLNYATw_9QYbjUo1XClLMdC?usp=sharing"
+            },
+            {
+                subject: "Chemistry",
+                link: "https://drive.google.com/drive/folders/1D9Wgt6JMOeIG8o6Tf2emBJqAfQ9oE8Fj?usp=sharing"
+            },
+            {
+                subject: "English",
+                link: "https://drive.google.com/drive/folders/1Di-kJdQpqbBeZ6ww7f8r3-Yh3zvi16Ca?usp=sharing"
+            },
+            {
+                subject: "Math",
+                link: "https://drive.google.com/drive/folders/1E4XVtxmIThCcm0D5guOeJdRveVWimS-U?usp=sharing"
+            },
+            {
+                subject: "Paper",
+                link: "https://drive.google.com/drive/folders/1EzxYVW3Sha1Izb7PCiauG2xGhBO_gWUf?usp=sharing"
+            },
+        ],
+        2:[
+            {
+                subject: "Bio",
+                link: "https://drive.google.com/drive/folders/1-wHxHBHl3v-DcbY_k-y9_ceMT-vb3gQv?usp=sharing"
+            },
+            {
+                subject: "CP",
+                link: "https://drive.google.com/drive/folders/1-xwn1vwzwPG2kRWc0HXQvy6agxYanKmd?usp=sharing"
+            },
+            {
+                subject: "EGDP",
+                link: "https://drive.google.com/drive/folders/13o1rMu0DgJQK59zmhw_yAuhZuEBY5NCc?usp=sharing"
+            },
+            {
+                subject: "Pyq",
+                link: "https://drive.google.com/drive/folders/12pfNwWp4i5nFp6bTPIX6HayrMP1fa6It?usp=sharing"
+            },
+            {
+                subject: "Math",
+                link: "https://drive.google.com/drive/folders/13ZGHW1wf9b-as03-14aWgyLWpsJknK0J?usp=sharing"
+            },
+            {
+                subject: "EMT",
+                link: "https://drive.google.com/drive/folders/1-JYhvZ67kJawzhkad7xWLrlu8DsYLGt2?usp=sharing"
+            },
+        ],
+        3:[
+            {
+                subject: "DE",
+                link: "https://drive.google.com/drive/folders/176OQHKQ2NvPjrAO07TnSQLsmIK7gDnwt?usp=sharing"
+            },
+            {
+                subject: "ED",
+                link: "https://drive.google.com/drive/folders/1A5YWAIVXp-dUbS-bz4v1AQJprJpSHTfj?usp=sharing"
+            },
+            {
+                subject: "EIT",
+                link: "https://drive.google.com/drive/folders/18knbRaTaY2aQOU2QoI13yChOhQ4gZ8vI?usp=sharing"
+            },
+            {
+                subject: "EVS",
+                link: "https://drive.google.com/drive/folders/196o17oZS33yF3aUIRBezcZKFmnJpHKZd?usp=sharing"
+            },
+            {
+                subject: "NT",
+                link: "https://drive.google.com/drive/folders/18FpHAUUX7bvqDMPRQf8eMoc2Fc1-Q-Jc?usp=sharing"
+            },
+            {
+                subject: "OW",
+                link: "https://drive.google.com/drive/folders/17K8AWeALZHzpvRqSVy0N_M_pFlVn8XH5?usp=sharing"
+            },
+            {
+                subject: "SESSIONAL",
+                link: "https://drive.google.com/drive/folders/1ARNgQ8AwfkHw85hftBR9NkOIGF5iUEOD?usp=sharing"
+            },
+            {
+                subject: "SIGNAL AND SYSTEM",
+                link: ""
+            },
+            {
+                subject: "PAPER",
+                link: "https://drive.google.com/drive/folders/1An145JHkxKmDcNOAmUGoAaVjg7Tq-LfJ?usp=sharing"
+            },
+        ],
+        4:[
+            {
+                subject: "",
+                link: ""
+            },
+        ],
+        5:[
+            {
+                subject: "",
+                link: ""
+            },
+        ],
+        6:[
+            {
+                subject: "",
+                link: ""
+            },
+        ],
+        7:[
+            {
+                subject: "",
+                link: ""
+            },
+        ],
+        8:[
+            {
+                subject: "",
+                link: ""
+            },
+        ],
+    },
+    mech: {
+        1:[
+            {
+                subject: "",
+                link: ""
+            },
+        ],
+        2:[
+            {
+                subject: "",
+                link: ""
+            },
+        ],
+        3:[
+            {
+                subject: "",
+                link: ""
+            },
+        ],
+        4:[
+            {
+                subject: "",
+                link: ""
+            },
+        ],
+        5:[
+            {
+                subject: "",
+                link: ""
+            },
+        ],
+        6:[
+            {
+                subject: "",
+                link: ""
+            },
+        ],
+        7:[
+            {
+                subject: "",
+                link: ""
+            },
+        ],
+        8:[
+            {
+                subject: "",
+                link: ""
+            },
+        ],
+    },
+    bio: {
+        1:[
+            {
+                subject: "",
+                link: ""
+            },
+        ],
+        2:[
+            {
+                subject: "",
+                link: ""
+            },
+        ],
+        3:[
+            {
+                subject: "",
+                link: ""
+            },
+        ],
+        4:[
+            {
+                subject: "",
+                link: ""
+            },
+        ],
+        5:[
+            {
+                subject: "",
+                link: ""
+            },
+        ],
+        6:[
+            {
+                subject: "",
+                link: ""
+            },
+        ],
+        7:[
+            {
+                subject: "",
+                link: ""
+            },
+        ],
+        8:[
+            {
+                subject: "",
+                link: ""
+            },
+        ],
+    },
 }
 
 export default data;
