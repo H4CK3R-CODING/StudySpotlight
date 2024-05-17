@@ -10,8 +10,16 @@ const Home = () => {
     setModel(false);
   }
 
-
-
+  // fix not popup model ===> now shows only once.
+  
+  const already_show_model = localStorage.getItem("already_show_model") || false;
+  
+  onbeforeunload = function(){
+    this.localStorage.removeItem("already_show_model");
+  }
+  
+  // fix not popup model ===> now shows only once.
+  
   const btninfo=[
     {
       label: "Get Notes",
@@ -28,7 +36,7 @@ const Home = () => {
   ]
   return (
     <>
-      {model && <Model closeFun={closeModel}/>}
+      {model && !already_show_model && <Model closeFun={closeModel}/>}
       <div className='home '>
         <div className='z-10 absolute left-28 top-1/2 rounded-xl flex flex-col justify-center items-center sm:left-64'>
           {

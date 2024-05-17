@@ -14,6 +14,7 @@ const Model = ({closeFun}) => {
         document.body.style.overflowY = "hidden"
         return ()=>{
             document.body.style.overflowY = "scroll"
+            localStorage.setItem("already_show_model",true)
         }
     },[])
 
