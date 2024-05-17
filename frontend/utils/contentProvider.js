@@ -8,17 +8,22 @@ const contentProvider = [
   {
     name: "Gaurav",
     identity: "CSE 2022-26",
-    quantity: 2,
+    quantity: 2.00,
   },
   {
     name: "Gulshan",
     identity: "CSE 2022-26",
-    quantity: 1.2,
+    quantity: 1.20,
+  },
+  {
+    name: "Prince",
+    identity: "ECE 2022-26",
+    quantity: 1.17,
   },
   {
     name: "Vansh",
     identity: "CSE 2022-26",
-    quantity: 1.0,
+    quantity: 1.00,
   },
 ];
 
