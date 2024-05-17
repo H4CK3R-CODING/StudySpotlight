@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { MdClose } from "react-icons/md";
 
 const Model = ({closeFun}) => {
@@ -9,6 +9,13 @@ const Model = ({closeFun}) => {
             closeFun();
         }
     }
+
+    useEffect(()=>{
+        document.body.style.overflowY = "hidden"
+        return ()=>{
+            document.body.style.overflowY = "scroll"
+        }
+    },[])
 
 
   return (
