@@ -28,10 +28,23 @@
 
 .home{
     background: url("./assets/HomePage.jpg");
-    width: 100vw;
+    /* width: 100vw; */
     height: 100vh;
     background-size: cover;
     background-position: 69%;
     background-repeat: no-repeat;
     z-index: -1;
+}
+
+/* remove scrollbar */
+body::-webkit-scrollbar{
+    display: none;
+}
+
+body{
+    scrollbar-width: none;
+}
+
+body{
+    -ms-overflow-style: none;
 }
